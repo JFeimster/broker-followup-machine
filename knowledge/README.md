@@ -15,5 +15,9 @@ Use this for:
 
 This folder should contain the files you upload directly to GPT knowledge.
 
-## core-operating-system/
-  `/broker-follow-up-machine-sla-standards.md`
+## Tier 1: `core-operating-system/`
+  `broker-follow-up-machine-sla-standards.md`
+  `broker-pipeline-operating-system.md`
+│   │   ├── broker-crm-stage-library.md
+│   │   ├── broker-tags-statuses-library.md
+│   │   └── broker-human-review-rules.md
