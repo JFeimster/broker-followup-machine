@@ -2,6 +2,21 @@
 
 Broker follow-up workflows, GPT knowledge files, Actions specs, and CRM automation docs.
 
+## Product Snapshot
+
+| Title | Description |
+|---|---|
+| `Problem:` | Loan brokers lose funded deals because leads, missing docs, and referral partners fall through the cracks. |
+| `Solution:` | A GPT that builds borrower, referral partner, and pipeline follow-up systems with scripts, CRM stages, and automation rules. |
+| `Best use:` | Converting messy broker follow-up into repeatable revenue protection. |
+
+## Positioning
+
+- **Category:** Sales & Client Relations / Productivity & Automation
+- **Audience:** Loan brokers, funding agency owners, independent brokers, referral partner managers, broker sales teams
+- **Funnel stage:** Lead Magnet
+- **Primary CTA:** Download the broker follow-up sequence pack or request CRM automation setup.
+
 ## What this repo contains
 
 - GPT Builder instructions
@@ -24,9 +39,3 @@ Broker follow-up workflows, GPT knowledge files, Actions specs, and CRM automati
 | `/examples` | Sample outputs and test cases |
 | `/site` | Static Vercel documentation pages |
 | `/prompts` | Prompts used to generate docs and files |
-
-## Deployment
-
-This repo can be deployed to Vercel as:
-
-broker-followup-machine.vercel.app
