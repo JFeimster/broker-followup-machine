@@ -1,4 +1,4 @@
-# knowledge/
+# `knowledge/`
 
 This is where the GPT upload-ready knowledge files live.
 
@@ -15,7 +15,7 @@ Use this for:
 
 This folder should contain the files you upload directly to GPT knowledge.
 
-## Tier(s) 1-5
+## `Tier(s) 1-5`
 
 ### Tier 1: core-operating-system/
 - `broker-follow-up-machine-sla-standards.md`
@@ -49,7 +49,7 @@ This folder should contain the files you upload directly to GPT knowledge.
 
 ## `actions/`
 
-`actions/` is where the GPT Actions documentation lives.
+This is where the GPT Actions documentation lives.
 
 Use this for:
 
