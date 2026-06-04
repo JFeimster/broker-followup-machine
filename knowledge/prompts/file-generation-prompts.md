@@ -1,4 +1,4 @@
-# `File Generation Prompts`
+# File Generation Prompts
 
 Example:
 
