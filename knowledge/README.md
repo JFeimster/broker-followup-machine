@@ -15,5 +15,5 @@ Use this for:
 
 This folder should contain the files you upload directly to GPT knowledge.
 
-├── `/core-operating-system/`
-│   ├── broker-follow-up-machine-sla-standards.md
+## core-operating-system/
+  `/broker-follow-up-machine-sla-standards.md`
