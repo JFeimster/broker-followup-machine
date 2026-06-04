@@ -47,9 +47,9 @@ This folder should contain the files you upload directly to GPT knowledge.
 ### Tier 5: expert-examples
 - `broker-workflow-swipe-file.md`
 
-## actions/
+## `actions/`
 
-This is where the GPT Actions documentation lives.
+`actions/` is where the GPT Actions documentation lives.
 
 Use this for:
 
