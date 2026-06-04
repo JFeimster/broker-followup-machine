@@ -4,18 +4,20 @@ Broker follow-up workflows, GPT knowledge files, Actions specs, and CRM automati
 
 ## Product Snapshot
 
-| Title | Description |
+| Label | Info |
 |---|---|
-| `Problem:` | Loan brokers lose funded deals because leads, missing docs, and referral partners fall through the cracks. |
-| `Solution:` | A GPT that builds borrower, referral partner, and pipeline follow-up systems with scripts, CRM stages, and automation rules. |
-| `Best use:` | Converting messy broker follow-up into repeatable revenue protection. |
+| `Problem` | Loan brokers lose funded deals because leads, missing docs, and referral partners fall through the cracks. |
+| `Solution` | A GPT that builds borrower, referral partner, and pipeline follow-up systems with scripts, CRM stages, and automation rules. |
+| `Best use` | Converting messy broker follow-up into repeatable revenue protection. |
 
 ## Positioning
 
-- **Category:** Sales & Client Relations / Productivity & Automation
-- **Audience:** Loan brokers, funding agency owners, independent brokers, referral partner managers, broker sales teams
-- **Funnel stage:** Lead Magnet
-- **Primary CTA:** Download the broker follow-up sequence pack or request CRM automation setup.
+| Title | Description |
+|---|---|
+| **Category:** | Sales & Client Relations / Productivity & Automation |
+| **Audience:** | Loan brokers, funding agency owners, independent brokers, referral partner managers, broker sales teams. |
+| **Funnel stage:** | Lead Magnet |
+| **Primary CTA:** | Download the broker follow-up sequence pack or request CRM automation setup. |
 
 ## What this repo contains
 
