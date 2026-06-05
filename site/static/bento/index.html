@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broker Follow-Up Machine | Command Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables - Luxury Futurism & Neo-Brutalism */
+        :root {
+            --bg-base: #050505;
+            --bg-surface: #111111;
+            --bg-elevated: #1a1a1a;
+            --accent-cyan: #00f3ff;
+            --accent-lime: #39ff14;
+            --accent-orange: #ff5722;
+            --accent-magenta: #ff00ff;
+            --text-main: #ffffff;
+            --text-muted: #888888;
+            --border-color: #333333;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        /* Reset & Base */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg-base); color: var(--text-main); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; }
+        a { text-decoration: none; color: inherit; }
+        
+        /* Layout Utilities */
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+        .py-32 { padding-top: 8rem; padding-bottom: 8rem; }
+        .text-center { text-align: center; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mb-12 { margin-bottom: 3rem; }
+        
+        /* Typography Utilities */
+        .text-cyan { color: var(--accent-cyan); }
+        .text-lime { color: var(--accent-lime); }
+        .text-muted { color: var(--text-muted); }
+        .text-sm { font-size: 0.875rem; }
+        .text-lg { font-size: 1.125rem; }
+        .text-xl { font-size: 1.25rem; }
+        .text-4xl { font-size: 2.5rem; line-height: 1.1; }
+        .text-6xl { font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1; letter-spacing: -0.04em; }
+        .uppercase { text-transform: uppercase; }
+        .font-semibold { font-weight: 600; }
+
+        /* Buttons */
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 1rem 2rem; font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; transition: all 0.3s ease; cursor: pointer; border: 2px solid transparent; }
+        .btn-primary { background: var(--text-main); color: var(--bg-base); box-shadow: 4px 4px 0px var(--accent-cyan); }
+        .btn-primary:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0px var(--accent-cyan); }
+        .btn-secondary { background: transparent; color: var(--text-main); border-color: var(--border-color); }
+        .btn-secondary:hover { border-color: var(--text-main); }
+        
+        /* Nav */
+        .sticky-nav { position: fixed; top: 0; width: 100%; background: rgba(5, 5, 5, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); z-index: 50; padding: 1rem 0; }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; }
+
+        /* Bento Grid Layout */
+        .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; }
+        .bento-item { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 2rem; transition: transform 0.3s ease, border-color 0.3s ease; }
+        .bento-item:hover { border-color: var(--accent-cyan); transform: translateY(-4px); }
+        .col-span-12 { grid-column: span 12; }
+        .col-span-8 { grid-column: span 8; }
+        .col-span-6 { grid-column: span 6; }
+        .col-span-4 { grid-column: span 4; }
+
+        /* Activity Indicators */
+        .indicator { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--bg-elevated); padding: 0.5rem 1rem; border-radius: 99px; border: 1px solid var(--border-color); font-size: 0.875rem; font-family: var(--font-display); }
+        .dot { width: 8px; height: 8px; border-radius: 50%; }
+        .dot.lime { background: var(--accent-lime); box-shadow: 0 0 10px var(--accent-lime); animation: pulseLime 2s infinite; }
+        .dot.orange { background: var(--accent-orange); box-shadow: 0 0 10px var(--accent-orange); }
+        .dot.cyan { background: var(--accent-cyan); box-shadow: 0 0 10px var(--accent-cyan); }
+
+        /* Animations */
+        @keyframes pulseLime {
+            0% { transform: scale(0.95); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.5; }
+            100% { transform: scale(0.95); opacity: 1; }
+        }
+
+        /* Image Placeholders */
+        .img-fluid { max-width: 100%; height: auto; border-radius: 4px; display: block; margin-top: 1rem; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .bento-item { grid-column: span 12 !important; }
+            .hero-actions { flex-direction: column; gap: 1rem; }
+            .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav class="sticky-nav">
+        <div class="container nav-inner">
+            <div class="logo">BROKER_OPS<span class="text-cyan">.GPT</span></div>
+            <a href="#audit" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Audit Pipeline</a>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section class="py-32" style="margin-top: 4rem;">
+        <div class="container text-center">
+            <div class="mb-8" style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <div class="indicator"><span class="dot lime"></span> SLA Met: Speed-to-Lead < 5m</div>
+                <div class="indicator"><span class="dot orange"></span> Missing Docs: Chase Active</div>
+                <div class="indicator"><span class="dot cyan"></span> Review: Term Sheet Paused</div>
+            </div>
+            <h1 class="text-6xl mb-8">Your Pipeline Isn't Broken.<br><span class="text-muted">Your Follow-Up System Is.</span></h1>
+            <p class="text-xl text-muted mb-12" style="max-width: 700px; margin-left: auto; margin-right: auto;">
+                Stop losing broker deals to the "CRM Black Hole." Turn your messy pipeline into an automated, compliance-safe follow-up machine that never drops a borrower or partner.
+            </p>
+            <div class="hero-actions" style="display: flex; justify-content: center; gap: 1.5rem;">
+                <a href="#audit" class="btn btn-primary">Book Pipeline Leak Audit</a>
+                <a href="#framework" class="btn btn-secondary">Download Sequence Framework</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Problem Amplification -->
+    <section class="py-20" style="background: var(--bg-surface); border-top: 1px solid var(--border-color);">
+        <div class="container bento-grid">
+            <div class="bento-item col-span-12 text-center">
+                <h2 class="text-4xl mb-4">The 2 AM Pipeline Panic.</h2>
+                <p class="text-lg text-muted" style="max-width: 800px; margin: 0 auto;">
+                    You know there is money sitting in your CRM right now. If your processors, VAs, and brokers are stepping on each other's toes—or dropping the ball completely—you don't have a contact management problem. You have a massive revenue leak.
+                </p>
+            </div>
+            <div class="bento-item col-span-4">
+                <h3 class="mb-4">1. The Stalled Deal</h3>
+                <p class="text-muted">Who exactly owns the follow-up for the deal that stalled last Tuesday? If no one knows, it's dead.</p>
+            </div>
+            <div class="bento-item col-span-4">
+                <h3 class="mb-4">2. The Ignored Partner</h3>
+                <p class="text-muted">Are your referral partners being acknowledged within 15 minutes of sending a lead? Speed protects relationships.</p>
+            </div>
+            <div class="bento-item col-span-4">
+                <h3 class="mb-4">3. The Missing Docs</h3>
+                <p class="text-muted">Who is actively chasing down missing stipulations without sounding desperate or annoying?</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Solution Mechanism & 5. Features -->
+    <section class="py-20">
+        <div class="container">
+            <h2 class="text-4xl text-center mb-12">Enter The Broker Follow-Up Machine.</h2>
+            <div class="bento-grid">
+                <!-- Large Feature -->
+                <div class="bento-item col-span-8">
+                    <h3 class="text-2xl mb-2">Active Operating Layer</h3>
+                    <p class="text-muted mb-4">A standard CRM just holds contact records. We build an active operating system layered directly over your pipeline. Every deal gets a Stage, Owner, Next Action, and Stop Condition.</p>
+                    <img src="https://via.placeholder.com/800x400/141414/00f3ff?text=Pipeline+Architecture+Diagram" alt="Architecture" class="img-fluid" style="border: 1px solid var(--border-color);">
+                </div>
+                <!-- Small Features -->
+                <div class="bento-item col-span-4" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div>
+                        <h4 class="text-cyan mb-2">Broker-Specific Workflows</h4>
+                        <p class="text-sm text-muted">Chasing missing docs requires a different tone than reviving a dead lead. Protect relationships while staying persistent.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lime mb-2">Strict SLA Timing</h4>
+                        <p class="text-sm text-muted">5-minute inbound contact rules and 15-minute partner acknowledgments. Be the fastest to the finish line.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-orange mb-2">Compliance Overrides</h4>
+                        <p class="text-sm text-muted">Built-in pauses before sensitive comms. Scale safely without making illegal approval promises.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Deep Proof (Before/After) -->
+    <section class="py-20" style="background: var(--bg-surface); border-top: 1px dashed var(--border-color); border-bottom: 1px dashed var(--border-color);">
+        <div class="container">
+            <h2 class="text-4xl text-center mb-12">Before vs. After The Machine</h2>
+            <div class="bento-grid">
+                <div class="bento-item col-span-6" style="border-color: #ff3333;">
+                    <h3 class="mb-4" style="color: #ff3333;">BEFORE</h3>
+                    <ul class="text-muted" style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+                        <li>✖ Messy, forgotten leads</li>
+                        <li>✖ Leaking pipelines</li>
+                        <li>✖ Manual sticky notes</li>
+                        <li>✖ Missed renewal opportunities</li>
+                    </ul>
+                </div>
+                <div class="bento-item col-span-6" style="border-color: var(--accent-cyan);">
+                    <h3 class="mb-4 text-cyan">AFTER</h3>
+                    <ul class="text-muted" style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+                        <li>✔ Owned and visible at all times</li>
+                        <li>✔ Automated routing to the right processor</li>
+                        <li>✔ Strict stop conditions for every sequence</li>
+                        <li>✔ 100% Revenue protected</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Value Stack & Scarcity -->
+    <section id="audit" class="py-20">
+        <div class="container">
+            <h2 class="text-4xl text-center mb-4">Choose Your Deployment Level</h2>
+            <p class="text-center text-muted mb-12">Precision systems cannot be mass-produced. We strictly limit Buildout Sprints to ensure quality.</p>
+            
+            <div class="bento-grid">
+                <div class="bento-item col-span-4">
+                    <h3 class="text-xl mb-2">Pipeline Leak Audit</h3>
+                    <div class="text-2xl font-display mb-4">$497 - $1,500</div>
+                    <p class="text-muted text-sm mb-6">For solo operators. We map your current leaks, audit your CRM stages, and hand you the exact blueprint to fix it.</p>
+                    <a href="#" class="btn btn-secondary w-full text-center" style="width: 100%;">Book Audit</a>
+                </div>
+                <div class="bento-item col-span-4" style="border-color: var(--accent-cyan); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; right: 0; background: var(--accent-cyan); color: #000; font-size: 0.75rem; padding: 0.25rem 1rem; font-weight: bold; text-transform: uppercase;">Most Popular</div>
+                    <h3 class="text-xl mb-2">Workflow Sprint</h3>
+                    <div class="text-2xl font-display mb-4">$2,500 - $7,500</div>
+                    <p class="text-muted text-sm mb-6">For active teams. We implement 2-4 core playbooks (Lead Nurture, Missing Docs, Renewals) directly into your stack.</p>
+                    <a href="#" class="btn btn-primary w-full text-center" style="width: 100%;">Reserve Sprint</a>
+                </div>
+                <div class="bento-item col-span-4">
+                    <h3 class="text-xl mb-2">Full Machine</h3>
+                    <div class="text-2xl font-display mb-4">$7,500+</div>
+                    <p class="text-muted text-sm mb-6">For scaling agencies. The complete architecture. Total team accountability, custom SOPs, and full automation maps.</p>
+                    <a href="#" class="btn btn-secondary w-full text-center" style="width: 100%;">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. FAQ / Objection Handling -->
+    <section class="py-20" style="background: var(--bg-surface);">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="text-4xl text-center mb-12">The Skeptic's FAQ</h2>
+            <div style="display: flex; flex-direction: column; gap: 2rem;">
+                <div>
+                    <h4 class="text-xl mb-2">"We already have a CRM."</h4>
+                    <p class="text-muted">You have a contact list, not an operating system. Our machine sits on top of your current CRM to give it timing rules, exact role ownership, and stop conditions.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl mb-2">"My team handles follow-up manually."</h4>
+                    <p class="text-muted">Manual works until you hit volume. This system doesn't replace your team; it acts as their air traffic controller, telling them exactly who to call and what is missing.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl mb-2">"I don't trust automation with compliance."</h4>
+                    <p class="text-muted">Neither do we. That's exactly why our logic includes mandatory Human Review checkpoints before sending terms, declines, or lender-specific statements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Final CTA -->
+    <section class="py-32 text-center">
+        <div class="container">
+            <h2 class="text-6xl mb-6">Stop Managing Contacts.<br><span class="text-cyan">Start Operating a Machine.</span></h2>
+            <p class="text-xl text-muted mb-12">Every hour your pipeline remains ownerless, another deal goes cold. Let's find your leaks and plug them.</p>
+            <a href="#audit" class="btn btn-primary" style="font-size: 1.25rem; padding: 1.5rem 3rem;">Claim Your Pipeline Leak Audit Now</a>
+        </div>
+    </section>
+
+</body>
+</html>
