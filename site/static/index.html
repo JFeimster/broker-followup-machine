@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Static Variants | Broker Follow-Up Machine GPT</title>
+  <meta
+    name="description"
+    content="Launcher page for the Broker Follow-Up Machine static site variants."
+  >
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0c10;
+      --panel: #11151d;
+      --panel-soft: #151b26;
+      --line: rgba(255, 255, 255, 0.12);
+      --text: #f4f6fb;
+      --muted: #a7b0c0;
+      --accent: #8ce0ff;
+      --accent-strong: #c3ff66;
+      --warn: #ff9a4d;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background:
+        radial-gradient(circle at top left, rgba(140, 224, 255, 0.15), transparent 30%),
+        radial-gradient(circle at top right, rgba(195, 255, 102, 0.12), transparent 28%),
+        linear-gradient(180deg, #090b10 0%, #0b0c10 100%);
+      color: var(--text);
+      font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      padding: 48px 0 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--accent);
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.8rem, 7vw, 5.7rem);
+      line-height: 0.94;
+      letter-spacing: -0.05em;
+      max-width: 11ch;
+    }
+
+    .lede {
+      margin: 18px 0 0;
+      max-width: 60ch;
+      color: var(--muted);
+      font-size: 1.03rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      font-weight: 700;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(140, 224, 255, 0.45);
+      background: rgba(140, 224, 255, 0.08);
+    }
+
+    .button-primary {
+      background: var(--text);
+      color: #0b0c10;
+      border-color: transparent;
+    }
+
+    .button-primary:hover {
+      background: var(--accent-strong);
+      color: #0b0c10;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .side {
+      padding: 22px;
+    }
+
+    .side h2 {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+    }
+
+    .side p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 12px;
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .info-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+    }
+
+    .label {
+      color: var(--muted);
+    }
+
+    .value {
+      color: var(--text);
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .section {
+      padding: 18px 0 56px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 60ch;
+      line-height: 1.6;
+    }
+
+    .variant-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .variant {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.5fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 18px 20px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(17, 21, 29, 0.82);
+      box-shadow: var(--shadow);
+    }
+
+    .variant h3 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .variant p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .variant-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--muted);
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }
+
+    .variant .button {
+      white-space: nowrap;
+      justify-self: end;
+    }
+
+    .footer {
+      padding: 6px 0 34px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .footer strong {
+      color: var(--text);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .variant,
+      .footer-grid,
+      .section-head {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .variant .button {
+        justify-self: start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .topbar {
+        font-size: 0.72rem;
+      }
+
+      h1 {
+        max-width: 100%;
+      }
+
+      .hero {
+        padding-top: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <span>Static variant directory</span>
+      <span>Broker Follow-Up Machine GPT</span>
+    </div>
+
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Choose a concept</p>
+          <h1>Browse the static site variants from one launcher.</h1>
+          <p class="lede">
+            This is the holding page for the different `/site/static/` concepts. The primary public site has not been locked yet, so each variant stays accessible here until you pick the direction you want to keep.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="../index.html">Open public docs site</a>
+            <a class="button" href="../downloads.html">Read downloads page</a>
+          </div>
+        </div>
+
+        <aside class="panel side">
+          <h2>How to preview locally</h2>
+          <p>
+            Serve the repo root and open this page in a browser, or open this file directly from the filesystem. From here, each variant opens in its own folder.
+          </p>
+          <ul class="info-list">
+            <li><span class="label">Public docs</span><span class="value">/site/index.html</span></li>
+            <li><span class="label">Variant directory</span><span class="value">/site/static/</span></li>
+            <li><span class="label">Primary status</span><span class="value">Not selected</span></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Available variants</p>
+          <h2>Open each concept individually</h2>
+        </div>
+        <p>
+          Each folder below contains a standalone static concept. Use this launcher to compare them side by side before deciding which one becomes the primary public site.
+        </p>
+      </div>
+
+      <div class="variant-list">
+        <article class="variant">
+          <div>
+            <h3>Bento</h3>
+            <div class="variant-meta">
+              <span class="tag">Command center layout</span>
+              <span class="tag">Prototype</span>
+            </div>
+          </div>
+          <p>Structured dashboard-style concept focused on systems visibility and quick scanning.</p>
+          <a class="button" href="bento/">Open folder</a>
+        </article>
+
+        <article class="variant">
+          <div>
+            <h3>Brandos Gem</h3>
+            <div class="variant-meta">
+              <span class="tag">Documentation-forward</span>
+              <span class="tag">Prototype</span>
+            </div>
+          </div>
+          <p>Documentation-style variant with a more informational presentation of the product.</p>
+          <a class="button" href="brandos-gem/">Open folder</a>
+        </article>
+
+        <article class="variant">
+          <div>
+            <h3>Brutal 1</h3>
+            <div class="variant-meta">
+              <span class="tag">Revised brutalist</span>
+              <span class="tag">Prototype</span>
+            </div>
+          </div>
+          <p>Sharper revision of the original brutalist landing page concept.</p>
+          <a class="button" href="brutal-1/">Open folder</a>
+        </article>
+
+        <article class="variant">
+          <div>
+            <h3>Brutalist</h3>
+            <div class="variant-meta">
+              <span class="tag">Original concept</span>
+              <span class="tag">Prototype</span>
+            </div>
+          </div>
+          <p>Baseline brutalist direction with the highest contrast and most direct marketing posture.</p>
+          <a class="button" href="brutalist/">Open folder</a>
+        </article>
+
+        <article class="variant">
+          <div>
+            <h3>Brutalist Fintech</h3>
+            <div class="variant-meta">
+              <span class="tag">Control center</span>
+              <span class="tag">Prototype</span>
+            </div>
+          </div>
+          <p>Fintech-leaning version that feels closer to a product dashboard than a standard landing page.</p>
+          <a class="button" href="brutalist-fintech/">Open folder</a>
+        </article>
+
+        <article class="variant">
+          <div>
+            <h3>Brutalist Futurism</h3>
+            <div class="variant-meta">
+              <span class="tag">Futurist variation</span>
+              <span class="tag">Prototype</span>
+            </div>
+          </div>
+          <p>Faster, more futuristic treatment for comparing motion, tone, and composition choices.</p>
+          <a class="button" href="brutalist-futurism/">Open folder</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="footer-grid">
+        <div>
+          <strong>Viewing path</strong>
+          <p>Use this page to compare variants before naming a primary site.</p>
+        </div>
+        <div>
+          <strong>Safety note</strong>
+          <p>Keep borrower-facing wording compliance-conscious and avoid claims that imply approval, eligibility, or guarantees.</p>
+        </div>
+        <div>
+          <strong>Next step</strong>
+          <p>Pick one variant, promote it into the public site, and leave the rest here as reference concepts.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

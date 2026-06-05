@@ -31,6 +31,20 @@ Broker follow-up workflows, GPT knowledge files, Actions specs, and CRM automati
 - OpenAPI schema drafts
 - Vercel documentation site
 
+## Viewing the site locally
+
+No build step is required. From the repo root, run:
+
+```bash
+python -m http.server 8080
+```
+
+Then open:
+
+- `http://localhost:8080/site/` for the public docs site
+- `http://localhost:8080/site/static/` for the static variant directory
+- `http://localhost:8080/site/static/brutalist/` or any other variant folder to open one concept directly
+
 ## Main folders
 
 | Folder | Purpose |
