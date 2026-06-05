@@ -1,0 +1,37 @@
+[
+  {
+    "file": "agents.html",
+    "title": "Agent",
+    "description": "Public-facing explanation of Broker Follow-Up Machine GPT."
+  },
+  {
+    "file": "knowledge.html",
+    "title": "Knowledge Stack",
+    "description": "Browse the core GPT knowledge files and workflow playbooks."
+  },
+  {
+    "file": "actions.html",
+    "title": "Actions",
+    "description": "Browse action categories, authentication types, and future integrations."
+  },
+  {
+    "file": "workflows.html",
+    "title": "Workflows",
+    "description": "Explore borrower, referral partner, renewal, and dead-lead workflows."
+  },
+  {
+    "file": "templates.html",
+    "title": "Templates",
+    "description": "Browse email, SMS, call script, and CRM task templates."
+  },
+  {
+    "file": "safety.html",
+    "title": "Safety",
+    "description": "Human review rules and compliance-conscious broker language."
+  },
+  {
+    "file": "assets.html",
+    "title": "Assets",
+    "description": "Downloadable files, screenshots, examples, and useful links."
+  }
+]
