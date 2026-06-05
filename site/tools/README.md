@@ -13,6 +13,7 @@ This folder contains a lightweight static viewer for the repository's schemas, e
 - `index.html` for the tools home page
 - `payload-builder.html` for a local static payload builder
 - `safety-language-checker.html` for local safety-language review
+- `sequence-builder.html` for local follow-up sequence drafting
 - `payload-viewer.html` for payload, webhook, and output examples
 - `schema-index.html` for JSON Schema drafts
 - `openapi-index.html` for OpenAPI drafts

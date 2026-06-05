@@ -24,6 +24,7 @@ Page map:
 | `assets.html` | Legacy compatibility page that points to `downloads.html`. |
 | `tools/payload-builder.html` | Static in-browser payload builder. |
 | `tools/safety-language-checker.html` | Static in-browser safety language checker. |
+| `tools/sequence-builder.html` | Static in-browser follow-up sequence builder. |
 | `tools/index.html` | Static utility viewer for schemas, examples, and OpenAPI drafts. |
 | `tools/payload-viewer.html` | Static catalog of payload, webhook, and output examples. |
 | `tools/schema-index.html` | Static index of JSON Schema drafts. |

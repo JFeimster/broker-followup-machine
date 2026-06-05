@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sequence Builder | Broker Follow-Up Machine GPT</title>
+  <meta name="description" content="Local-only follow-up sequence builder for Broker Follow-Up Machine GPT.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .builder-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 1.25rem;
+      align-items: start;
+    }
+    .builder-form {
+      display: grid;
+      gap: 1rem;
+    }
+    .builder-grid {
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .field {
+      display: grid;
+      gap: 0.4rem;
+    }
+    .field label {
+      font-weight: 600;
+      font-size: 0.94rem;
+    }
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(34, 46, 70, 0.14);
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--text);
+      padding: 0.8rem 0.9rem;
+      font: inherit;
+    }
+    .field textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    .preview-box {
+      border-radius: 18px;
+      border: 1px solid rgba(34, 46, 70, 0.12);
+      background: #0f1720;
+      color: #f2f4f8;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      min-height: 520px;
+    }
+    .notice {
+      border-left: 4px solid var(--accent);
+      background: rgba(229, 127, 62, 0.09);
+      padding: 0.9rem 1rem;
+      border-radius: 12px;
+    }
+    @media (max-width: 960px) {
+      .builder-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 720px) {
+      .builder-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body data-page="tools">
+  <header class="site-header">
+    <div class="topbar">
+      <span>Public static docs</span>
+      <span>Broker Follow-Up Machine GPT</span>
+    </div>
+    <div class="header-inner page-wrap">
+      <a class="brand" href="../index.html" aria-label="Broker Follow-Up Machine GPT home">
+        <span class="brand-mark">BFM</span>
+        <span class="brand-copy">
+          <strong>Broker Follow-Up Machine GPT</strong>
+          <span>Documentation site</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html" data-nav="home">Home</a>
+        <a href="../agents.html" data-nav="agent">Agent</a>
+        <a href="../knowledge.html" data-nav="knowledge">Knowledge</a>
+        <a href="../actions.html" data-nav="actions">Actions</a>
+        <a href="../workflows.html" data-nav="workflows">Workflows</a>
+        <a href="../templates.html" data-nav="templates">Templates</a>
+        <a href="../safety.html" data-nav="safety">Safety</a>
+        <a href="../downloads.html" data-nav="downloads">Downloads</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap page-body">
+    <section class="page-intro panel">
+      <p class="eyebrow">Tools</p>
+      <h1>Follow-Up Sequence Builder</h1>
+      <p class="lede">
+        Local-only and draft-only. Use this to build a practical follow-up sequence in your browser, then review it before you use it anywhere borrower-facing.
+      </p>
+      <div class="notice">
+        Nothing is sent or stored anywhere. This is an in-browser draft generator only.
+      </div>
+    </section>
+
+    <section class="section builder-layout">
+      <article class="panel">
+        <form id="sequenceForm" class="builder-form">
+          <div class="builder-grid">
+            <div class="field">
+              <label for="workflow_id">Workflow selector</label>
+              <select id="workflow_id">
+                <option value="new-lead">new-lead</option>
+                <option value="missing-docs">missing-docs</option>
+                <option value="stalled-deal">stalled-deal</option>
+                <option value="declined-reactivation">declined-reactivation</option>
+                <option value="funded-renewals">funded-renewals</option>
+                <option value="referral-nurture">referral-nurture</option>
+                <option value="dead-lead-revival">dead-lead-revival</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="channel">Channel selector</label>
+              <select id="channel">
+                <option value="email">email</option>
+                <option value="sms">sms</option>
+                <option value="call">call</option>
+                <option value="voicemail">voicemail</option>
+                <option value="mixed">mixed</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cadence">Cadence selector</label>
+              <select id="cadence">
+                <option value="3-touch">3-touch</option>
+                <option value="5-touch">5-touch</option>
+                <option value="7-touch">7-touch</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="tone">Tone selector</label>
+              <select id="tone">
+                <option value="direct">direct</option>
+                <option value="friendly">friendly</option>
+                <option value="urgent-but-safe">urgent-but-safe</option>
+                <option value="referral-partner">referral-partner</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="business_name">Business name</label>
+              <input id="business_name" type="text" value="Example Business LLC">
+            </div>
+            <div class="field">
+              <label for="contact_name">Contact name</label>
+              <input id="contact_name" type="text" value="Example Broker">
+            </div>
+            <div class="field">
+              <label for="broker_name">Broker name</label>
+              <input id="broker_name" type="text" value="Example Broker">
+            </div>
+            <div class="field">
+              <label for="next_step">Next step</label>
+              <input id="next_step" type="text" value="Confirm the next action and keep the file moving.">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="notes">Notes</label>
+            <textarea id="notes">Draft-only sequence. Human review required before borrower-facing use.</textarea>
+          </div>
+
+          <div class="actions-row">
+            <button class="button" type="button" id="generateButton">Generate sequence</button>
+            <button class="button button-secondary" type="button" id="resetButton">Reset</button>
+            <button class="button button-secondary" type="button" id="copyButton">Copy sequence</button>
+          </div>
+        </form>
+      </article>
+
+      <aside class="panel">
+        <div class="section-heading compact">
+          <p class="eyebrow">Output</p>
+          <h2>Sequence preview</h2>
+        </div>
+        <div id="outputPreview" class="preview-box" aria-live="polite"></div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-wrap footer-grid">
+      <div>
+        <strong>Broker Follow-Up Machine GPT</strong>
+        <p>Practical follow-up systems for broker teams and funding agency owners.</p>
+      </div>
+      <div>
+        <p>Human review before borrower-facing claims, lender-specific statements, declines, underwriting-related messages, and sensitive documents.</p>
+      </div>
+      <div class="footer-meta">
+        <span>Public docs</span>
+        <span data-year></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>
+    (() => {
+      const form = document.getElementById('sequenceForm');
+      const outputPreview = document.getElementById('outputPreview');
+      const generateButton = document.getElementById('generateButton');
+      const resetButton = document.getElementById('resetButton');
+      const copyButton = document.getElementById('copyButton');
+
+      const defaults = {
+        workflow_id: 'new-lead',
+        channel: 'email',
+        cadence: '3-touch',
+        tone: 'direct',
+        business_name: 'Example Business LLC',
+        contact_name: 'Example Broker',
+        broker_name: 'Example Broker',
+        next_step: 'Confirm the next action and keep the file moving.',
+        notes: 'Draft-only sequence. Human review required before borrower-facing use.',
+      };
+
+      const workflowLabels = {
+        'new-lead': 'New Lead',
+        'missing-docs': 'Missing Docs',
+        'stalled-deal': 'Stalled Deal',
+        'declined-reactivation': 'Declined Reactivation',
+        'funded-renewals': 'Funded Renewals',
+        'referral-nurture': 'Referral Nurture',
+        'dead-lead-revival': 'Dead Lead Revival',
+      };
+
+      const cadenceCounts = {
+        '3-touch': 3,
+        '5-touch': 5,
+        '7-touch': 7,
+      };
+
+      const toneOpeners = {
+        direct: 'Keep it short, clear, and action-first.',
+        friendly: 'Keep it warm, plainspoken, and easy to reply to.',
+        'urgent-but-safe': 'Move quickly, stay grounded, and avoid outcome language.',
+        'referral-partner': 'Stay professional, useful, and relationship-first.',
+      };
+
+      const channelModes = {
+        email: ['email'],
+        sms: ['sms'],
+        call: ['call'],
+        voicemail: ['voicemail'],
+        mixed: ['email', 'sms', 'call'],
+      };
+
+      const reviewNote = 'Human review required before lender-specific statements, underwriting-related messages, decline-related messages, sensitive document handling, or borrower-facing claims.';
+
+      const workflowThemes = {
+        'new-lead': {
+          title: 'Speed to contact',
+          action: 'Reach out quickly and keep the first step simple.',
+          crm: 'Log first touch, set next follow-up, and keep the lead warm.',
+        },
+        'missing-docs': {
+          title: 'Missing document follow-up',
+          action: 'Ask for the missing items without overexplaining.',
+          crm: 'Set a document follow-up task and mark the waiting-on-docs stage.',
+        },
+        'stalled-deal': {
+          title: 'Stalled deal revival',
+          action: 'Restart the conversation and make the next action obvious.',
+          crm: 'Move the file to stalled review and set the next touch date.',
+        },
+        'declined-reactivation': {
+          title: 'Declined reactivation',
+          action: 'Reopen the conversation carefully and keep the wording review-safe.',
+          crm: 'Flag the file for human review before any restart or reactivation task.',
+        },
+        'funded-renewals': {
+          title: 'Funded renewal reminders',
+          action: 'Keep the relationship warm and ask for a reviewable next step.',
+          crm: 'Set a post-funding follow-up task and note the renewal date.',
+        },
+        'referral-nurture': {
+          title: 'Referral partner nurture',
+          action: 'Stay useful, respectful, and consistent.',
+          crm: 'Add the partner to the nurture cadence and set the next check-in.',
+        },
+        'dead-lead-revival': {
+          title: 'Dead lead revival',
+          action: 'Reopen old conversations with a light, clean restart.',
+          crm: 'Tag the contact for revival and log the next contact attempt.',
+        },
+      };
+
+      function getValue(id) {
+        return document.getElementById(id).value.trim();
+      }
+
+      function touchLabel(index, total) {
+        return `Touch ${index} of ${total}`;
+      }
+
+      function channelForTouch(baseChannels, index) {
+        if (baseChannels.length === 1) return baseChannels[0];
+        return baseChannels[(index - 1) % baseChannels.length];
+      }
+
+      function buildTouch(workflow, channel, tone, index, total, state) {
+        const base = {
+          email: {
+            opening: 'Send a short email that keeps the next step clear.',
+            crm: 'Log the email and set a follow-up reminder.',
+            language: 'Keep the message direct and easy to skim.',
+          },
+          sms: {
+            opening: 'Send a short SMS that asks for a simple reply.',
+            crm: 'Log the SMS and schedule the next touch.',
+            language: 'Keep the text brief and plainspoken.',
+          },
+          call: {
+            opening: 'Call and keep the opener simple.',
+            crm: 'Log the call outcome and set the next action.',
+            language: 'Use a direct opener and leave room for conversation.',
+          },
+          voicemail: {
+            opening: 'Leave a concise voicemail that invites a callback.',
+            crm: 'Log the voicemail and note the callback window.',
+            language: 'Keep the voicemail short and specific.',
+          },
+        };
+
+        const pool = base[channel] || base.email;
+        const stepLead = index === 1
+          ? `${workflow.title}: Start with a clean first touch.`
+          : `${workflow.title}: Keep the sequence moving.`;
+        const toneNote = {
+          direct: 'Stay direct and operator-focused.',
+          friendly: 'Keep the tone human and easy to reply to.',
+          'urgent-but-safe': 'Move with urgency, but keep the language review-safe.',
+          'referral-partner': 'Stay relationship-first and professional.',
+        }[tone];
+
+        return [
+          `${touchLabel(index, total)} [${channel}]`,
+          `- ${stepLead}`,
+          `- ${pool.opening}`,
+          `- Suggested CRM task: ${pool.crm}`,
+          `- Tone note: ${toneNote}`,
+          `- Call/voicemail language: ${channel === 'call' || channel === 'voicemail' ? 'Keep it brief, direct, and review-safe.' : 'Optional if the broker wants a live follow-up.'}`,
+          `- Next-step note: ${state.next_step}`,
+        ].join('\n');
+      }
+
+      function buildSequence() {
+        const workflow_id = getValue('workflow_id') || defaults.workflow_id;
+        const channel = getValue('channel') || defaults.channel;
+        const cadence = getValue('cadence') || defaults.cadence;
+        const tone = getValue('tone') || defaults.tone;
+        const business_name = getValue('business_name') || defaults.business_name;
+        const contact_name = getValue('contact_name') || defaults.contact_name;
+        const broker_name = getValue('broker_name') || defaults.broker_name;
+        const next_step = getValue('next_step') || defaults.next_step;
+        const notes = getValue('notes') || defaults.notes;
+
+        const workflow = workflowThemes[workflow_id] || workflowThemes['new-lead'];
+        const total = cadenceCounts[cadence] || 3;
+        const channels = channelModes[channel] || ['email'];
+        const touches = [];
+
+        for (let i = 1; i <= total; i += 1) {
+          const touchChannel = channel === 'mixed' ? channels[(i - 1) % channels.length] : channels[0];
+          touches.push(buildTouch(workflow, touchChannel, tone, i, total, { next_step }));
+        }
+
+        return [
+          `Sequence title: ${workflow.title} Sequence`,
+          `Workflow: ${workflow_id}`,
+          `Channel / cadence / tone: ${channel} / ${cadence} / ${tone}`,
+          `Human review note: ${reviewNote}`,
+          `Business: ${business_name}`,
+          `Contact: ${contact_name}`,
+          `Broker: ${broker_name}`,
+          `Notes: ${notes}`,
+          '',
+          `Tone note: ${toneOpeners[tone]}`,
+          `Action focus: ${workflow.action}`,
+          `CRM focus: ${workflow.crm}`,
+          '',
+          ...touches.flatMap((touch) => [touch, '']),
+          `Final note: Keep the copy practical, direct, and review-safe before any borrower-facing use.`,
+        ].join('\n');
+      }
+
+      function render() {
+        outputPreview.textContent = buildSequence();
+      }
+
+      function resetForm() {
+        Object.entries(defaults).forEach(([id, value]) => {
+          const el = document.getElementById(id);
+          if (el) el.value = value;
+        });
+        render();
+      }
+
+      generateButton.addEventListener('click', render);
+      resetButton.addEventListener('click', resetForm);
+      copyButton.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(outputPreview.textContent);
+          copyButton.textContent = 'Copied';
+          window.setTimeout(() => {
+            copyButton.textContent = 'Copy sequence';
+          }, 1200);
+        } catch (error) {
+          copyButton.textContent = 'Copy failed';
+          window.setTimeout(() => {
+            copyButton.textContent = 'Copy sequence';
+          }, 1200);
+        }
+      });
+
+      render();
+    })();
+  </script>
+</body>
+</html>
