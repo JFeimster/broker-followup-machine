@@ -2,12 +2,17 @@
 
 This folder contains quick-launch static site variants for Broker Follow-Up Machine.
 
+Open `index.html` in this folder to use the variant directory launcher.
+
 | Folder | Purpose | Status |
 |---|---|---|
+| `index.html` | Directory launcher for comparing every variant | Launcher |
 | `brutal/` | Original brutalist landing page concept | Prototype |
 | `brutal-1/` | Revised brutalist landing page | Prototype |
 | `brutalist-fintech/` | Fintech-style brutalist variation | Prototype |
 | `brutalist-futurism/` | Futuristic brutalist variation | Prototype |
+| `bento/` | Command-center style variation | Prototype |
+| `brandos-gem/` | Documentation-forward variation | Prototype |
 
 ---
 
