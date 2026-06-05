@@ -1,4 +1,4 @@
-# Custom GPT Site Build Chain
+# Custom GPT Site Build
 
 ## Purpose
 
