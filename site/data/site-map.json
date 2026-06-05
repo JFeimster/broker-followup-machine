@@ -77,6 +77,13 @@
     "category": "tools"
   },
   {
+    "file": "tools/sequence-builder.html",
+    "path": "site/tools/sequence-builder.html",
+    "title": "Sequence Builder",
+    "purpose": "Static in-browser follow-up sequence builder.",
+    "category": "tools"
+  },
+  {
     "file": "tools/payload-viewer.html",
     "path": "site/tools/payload-viewer.html",
     "title": "Payload Viewer",
