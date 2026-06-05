@@ -86,6 +86,7 @@ Then open:
 - `http://localhost:8080/site/tools/payload-builder.html` for the local payload builder
 - `http://localhost:8080/site/tools/safety-language-checker.html` for the local safety language checker
 - `http://localhost:8080/site/tools/sequence-builder.html` for the local follow-up sequence builder
+- `http://localhost:8080/site/tools/crm-stage-map-builder.html` for the local CRM stage map builder
 - `http://localhost:8080/site/static/` for the static variant directory
 - `http://localhost:8080/site/static/brutalist/` or any other variant folder to open one concept directly
 

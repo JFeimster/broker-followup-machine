@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM Stage Map Builder | Broker Follow-Up Machine GPT</title>
+  <meta name="description" content="Local-only CRM stage map builder for Broker Follow-Up Machine GPT.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .builder-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 1.25rem;
+      align-items: start;
+    }
+    .builder-form {
+      display: grid;
+      gap: 1rem;
+    }
+    .builder-grid {
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .field {
+      display: grid;
+      gap: 0.4rem;
+    }
+    .field label {
+      font-weight: 600;
+      font-size: 0.94rem;
+    }
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(34, 46, 70, 0.14);
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--text);
+      padding: 0.8rem 0.9rem;
+      font: inherit;
+    }
+    .field textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    .preview-box {
+      border-radius: 18px;
+      border: 1px solid rgba(34, 46, 70, 0.12);
+      background: #0f1720;
+      color: #f2f4f8;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      min-height: 560px;
+    }
+    .notice {
+      border-left: 4px solid var(--accent);
+      background: rgba(229, 127, 62, 0.09);
+      padding: 0.9rem 1rem;
+      border-radius: 12px;
+    }
+    @media (max-width: 960px) {
+      .builder-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 720px) {
+      .builder-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body data-page="tools">
+  <header class="site-header">
+    <div class="topbar">
+      <span>Public static docs</span>
+      <span>Broker Follow-Up Machine GPT</span>
+    </div>
+    <div class="header-inner page-wrap">
+      <a class="brand" href="../index.html" aria-label="Broker Follow-Up Machine GPT home">
+        <span class="brand-mark">BFM</span>
+        <span class="brand-copy">
+          <strong>Broker Follow-Up Machine GPT</strong>
+          <span>Documentation site</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html" data-nav="home">Home</a>
+        <a href="../agents.html" data-nav="agent">Agent</a>
+        <a href="../knowledge.html" data-nav="knowledge">Knowledge</a>
+        <a href="../actions.html" data-nav="actions">Actions</a>
+        <a href="../workflows.html" data-nav="workflows">Workflows</a>
+        <a href="../templates.html" data-nav="templates">Templates</a>
+        <a href="../safety.html" data-nav="safety">Safety</a>
+        <a href="../downloads.html" data-nav="downloads">Downloads</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap page-body">
+    <section class="page-intro panel">
+      <p class="eyebrow">Tools</p>
+      <h1>CRM Stage Map Builder</h1>
+      <p class="lede">
+        Local-only and planning-only. Use this to map workflow logic into practical CRM stages, tags, tasks, review checkpoints, and metrics without touching a live system.
+      </p>
+      <div class="notice">
+        Nothing is sent or stored anywhere. This is an in-browser planning utility only.
+      </div>
+    </section>
+
+    <section class="section builder-layout">
+      <article class="panel">
+        <form id="stageMapForm" class="builder-form">
+          <div class="builder-grid">
+            <div class="field">
+              <label for="workflow_id">Workflow selector</label>
+              <select id="workflow_id">
+                <option value="new-lead">new-lead</option>
+                <option value="missing-docs">missing-docs</option>
+                <option value="stalled-deal">stalled-deal</option>
+                <option value="declined-reactivation">declined-reactivation</option>
+                <option value="funded-renewals">funded-renewals</option>
+                <option value="referral-nurture">referral-nurture</option>
+                <option value="dead-lead-revival">dead-lead-revival</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="crm_style">CRM style selector</label>
+              <select id="crm_style">
+                <option value="simple-pipeline">simple-pipeline</option>
+                <option value="broker-team">broker-team</option>
+                <option value="agency-ops">agency-ops</option>
+                <option value="referral-partner">referral-partner</option>
+                <option value="spreadsheet-tracker">spreadsheet-tracker</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="output_format">Output format selector</label>
+              <select id="output_format">
+                <option value="markdown">markdown</option>
+                <option value="json">json</option>
+                <option value="csv-like">csv-like</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="pipeline_name">Pipeline name</label>
+              <input id="pipeline_name" type="text" value="Example Broker Pipeline">
+            </div>
+            <div class="field">
+              <label for="owner_role">Owner role</label>
+              <input id="owner_role" type="text" value="Broker operations">
+            </div>
+            <div class="field">
+              <label for="default_next_task">Default next task</label>
+              <input id="default_next_task" type="text" value="Set the next action and keep the file moving.">
+            </div>
+            <div class="field">
+              <label for="review_owner">Review owner</label>
+              <input id="review_owner" type="text" value="Human reviewer">
+            </div>
+            <div class="field">
+              <label for="notes">Notes</label>
+              <textarea id="notes">Planning only. Human review required before any borrower-facing use or live CRM setup.</textarea>
+            </div>
+          </div>
+
+          <div class="actions-row">
+            <button class="button" type="button" id="generateButton">Generate map</button>
+            <button class="button button-secondary" type="button" id="resetButton">Reset</button>
+            <button class="button button-secondary" type="button" id="copyButton">Copy output</button>
+          </div>
+        </form>
+      </article>
+
+      <aside class="panel">
+        <div class="section-heading compact">
+          <p class="eyebrow">Output</p>
+          <h2>CRM stage map preview</h2>
+        </div>
+        <div id="outputPreview" class="preview-box" aria-live="polite"></div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-wrap footer-grid">
+      <div>
+        <strong>Broker Follow-Up Machine GPT</strong>
+        <p>Practical follow-up systems for broker teams and funding agency owners.</p>
+      </div>
+      <div>
+        <p>Human review before borrower-facing claims, lender-specific statements, declines, underwriting-related messages, and sensitive documents.</p>
+      </div>
+      <div class="footer-meta">
+        <span>Public docs</span>
+        <span data-year></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>
+    (() => {
+      const form = document.getElementById('stageMapForm');
+      const outputPreview = document.getElementById('outputPreview');
+      const generateButton = document.getElementById('generateButton');
+      const resetButton = document.getElementById('resetButton');
+      const copyButton = document.getElementById('copyButton');
+
+      const defaults = {
+        workflow_id: 'new-lead',
+        crm_style: 'simple-pipeline',
+        output_format: 'markdown',
+        pipeline_name: 'Example Broker Pipeline',
+        owner_role: 'Broker operations',
+        default_next_task: 'Set the next action and keep the file moving.',
+        review_owner: 'Human reviewer',
+        notes: 'Planning only. Human review required before any borrower-facing use or live CRM setup.',
+      };
+
+      const stageMap = {
+        'new-lead': ['New Lead Received', 'First Touch Pending', 'First Touch Sent', 'Reply Needed', 'Next Action Set'],
+        'missing-docs': ['Docs Requested', 'Waiting On Docs', 'Partial Docs Received', 'Review Needed', 'Next Action Set'],
+        'stalled-deal': ['Stalled Review', 'Re-Engagement Pending', 'Follow-Up Sent', 'Response Needed', 'Next Action Set'],
+        'declined-reactivation': ['Prior Decline Review', 'Human Review Needed', 'Reactivation Drafted', 'Broker Review Required', 'Next Action Set'],
+        'funded-renewals': ['Funded Client', 'Renewal Watch', 'Check-In Pending', 'Review Opportunity', 'Next Action Set'],
+        'referral-nurture': ['Partner Active', 'Partner Check-In Pending', 'Partner Education Sent', 'Referral Opportunity', 'Next Action Set'],
+        'dead-lead-revival': ['Dormant Lead', 'Revival Candidate', 'Revival Touch Sent', 'Response Needed', 'Next Action Set'],
+      };
+
+      const styleNotes = {
+        'simple-pipeline': 'Keep the pipeline easy to scan and easy to move.',
+        'broker-team': 'Use clear handoffs, owner roles, and review checkpoints.',
+        'agency-ops': 'Favor process visibility, task discipline, and status clarity.',
+        'referral-partner': 'Keep partner stages separate from borrower stages.',
+        'spreadsheet-tracker': 'Keep rows short, codes readable, and notes concise.',
+      };
+
+      const workflowLabels = {
+        'new-lead': 'New Lead',
+        'missing-docs': 'Missing Docs',
+        'stalled-deal': 'Stalled Deal',
+        'declined-reactivation': 'Declined Reactivation',
+        'funded-renewals': 'Funded Renewals',
+        'referral-nurture': 'Referral Nurture',
+        'dead-lead-revival': 'Dead Lead Revival',
+      };
+
+      const triggerIdeas = {
+        'new-lead': ['New inquiry received', 'Lead assigned', 'First touch sent'],
+        'missing-docs': ['Docs requested', 'Partial docs received', 'Follow-up due'],
+        'stalled-deal': ['No activity window hit', 'Status unchanged', 'Follow-up window opened'],
+        'declined-reactivation': ['Old decline revisited', 'Human review opened', 'Reactivation draft ready'],
+        'funded-renewals': ['Funding anniversary approaching', 'Renewal window opened', 'Check-in due'],
+        'referral-nurture': ['Partner check-in due', 'Partner education sent', 'Referral opportunity flagged'],
+        'dead-lead-revival': ['Dormant lead aged out', 'Revival candidate tagged', 'Revival touch due'],
+      };
+
+      const metrics = {
+        'new-lead': ['Speed to first touch', 'First response rate', 'Next action set rate'],
+        'missing-docs': ['Doc completion rate', 'Time to docs received', 'Follow-up completion rate'],
+        'stalled-deal': ['Re-engagement rate', 'Average days stalled', 'Response rate'],
+        'declined-reactivation': ['Review completion rate', 'Reactivation reply rate', 'Reopen rate'],
+        'funded-renewals': ['Renewal check-in rate', 'Renewal conversation rate', 'Next-step rate'],
+        'referral-nurture': ['Partner touch rate', 'Education sent rate', 'Referral opportunity rate'],
+        'dead-lead-revival': ['Revival touch rate', 'Reply rate', 'Reactivated lead rate'],
+      };
+
+      function getValue(id) {
+        return document.getElementById(id).value.trim();
+      }
+
+      function stagesForWorkflow(workflow) {
+        return stageMap[workflow] || stageMap['new-lead'];
+      }
+
+      function buildObject() {
+        const workflow = getValue('workflow_id') || defaults.workflow_id;
+        const style = getValue('crm_style') || defaults.crm_style;
+        const format = getValue('output_format') || defaults.output_format;
+        const pipelineName = getValue('pipeline_name') || defaults.pipeline_name;
+        const ownerRole = getValue('owner_role') || defaults.owner_role;
+        const defaultNextTask = getValue('default_next_task') || defaults.default_next_task;
+        const reviewOwner = getValue('review_owner') || defaults.review_owner;
+        const notes = getValue('notes') || defaults.notes;
+        const stages = stagesForWorkflow(workflow);
+        const tags = stages.map((stage) => stage.toLowerCase().replace(/[^a-z0-9]+/g, '-'));
+
+        return {
+          title: `${pipelineName} CRM Stage Map`,
+          workflow_id: workflow,
+          crm_style: style,
+          output_format: format,
+          pipeline_name: pipelineName,
+          owner_role: ownerRole,
+          suggested_stages: stages,
+          suggested_tags: tags,
+          suggested_tasks: stages.map((stage, index) => `${stage}: ${index === 0 ? defaultNextTask : 'Set the next action and keep the file moving.'}`),
+          human_review_checkpoints: [
+            'Human review required before borrower-facing claims.',
+            'Human review required before lender-specific statements.',
+            'Human review required before underwriting-related messages.',
+            'Human review required before decline-related messages.',
+            'Human review required before sensitive document handling.',
+          ],
+          automation_trigger_ideas: triggerIdeas[workflow] || triggerIdeas['new-lead'],
+          metrics_to_track: metrics[workflow] || metrics['new-lead'],
+          notes,
+          review_owner: reviewOwner,
+          safe_implementation_reminder: 'Use this as a planning map only. Broker should verify the final CRM setup before use, and do not send sensitive documents through insecure channels.',
+        };
+      }
+
+      function toMarkdown(obj) {
+        return [
+          `# ${obj.title}`,
+          ``,
+          `- Workflow ID: ${obj.workflow_id}`,
+          `- CRM style: ${obj.crm_style}`,
+          `- Output format: ${obj.output_format}`,
+          `- Pipeline name: ${obj.pipeline_name}`,
+          `- Owner role: ${obj.owner_role}`,
+          ``,
+          `## Suggested Stages`,
+          ...obj.suggested_stages.map((stage) => `- ${stage}`),
+          ``,
+          `## Suggested Tags`,
+          ...obj.suggested_tags.map((tag) => `- ${tag}`),
+          ``,
+          `## Suggested Tasks`,
+          ...obj.suggested_tasks.map((task) => `- ${task}`),
+          ``,
+          `## Human Review Checkpoints`,
+          ...obj.human_review_checkpoints.map((item) => `- ${item}`),
+          ``,
+          `## Automation Trigger Ideas`,
+          ...obj.automation_trigger_ideas.map((item) => `- ${item}`),
+          ``,
+          `## Metrics to Track`,
+          ...obj.metrics_to_track.map((item) => `- ${item}`),
+          ``,
+          `## Notes`,
+          `- ${obj.notes}`,
+          `- Review owner: ${obj.review_owner}`,
+          ``,
+          `## Safe Implementation Reminder`,
+          `- ${obj.safe_implementation_reminder}`,
+        ].join('\n');
+      }
+
+      function toCsvLike(obj) {
+        const rows = [
+          ['field', 'value'],
+          ['title', obj.title],
+          ['workflow_id', obj.workflow_id],
+          ['crm_style', obj.crm_style],
+          ['output_format', obj.output_format],
+          ['pipeline_name', obj.pipeline_name],
+          ['owner_role', obj.owner_role],
+          ['suggested_stages', obj.suggested_stages.join(' | ')],
+          ['suggested_tags', obj.suggested_tags.join(' | ')],
+          ['suggested_tasks', obj.suggested_tasks.join(' | ')],
+          ['human_review_checkpoints', obj.human_review_checkpoints.join(' | ')],
+          ['automation_trigger_ideas', obj.automation_trigger_ideas.join(' | ')],
+          ['metrics_to_track', obj.metrics_to_track.join(' | ')],
+          ['notes', obj.notes],
+          ['review_owner', obj.review_owner],
+          ['safe_implementation_reminder', obj.safe_implementation_reminder],
+        ];
+        return rows.map((row) => row.join(', ')).join('\n');
+      }
+
+      function render() {
+        const obj = buildObject();
+        const format = getValue('output_format') || defaults.output_format;
+        outputPreview.textContent = format === 'json'
+          ? JSON.stringify(obj, null, 2)
+          : format === 'csv-like'
+            ? toCsvLike(obj)
+            : toMarkdown(obj);
+      }
+
+      function resetForm() {
+        Object.entries(defaults).forEach(([id, value]) => {
+          const el = document.getElementById(id);
+          if (el) el.value = value;
+        });
+        render();
+      }
+
+      generateButton.addEventListener('click', render);
+      resetButton.addEventListener('click', resetForm);
+      copyButton.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(outputPreview.textContent);
+          copyButton.textContent = 'Copied';
+          window.setTimeout(() => {
+            copyButton.textContent = 'Copy output';
+          }, 1200);
+        } catch (error) {
+          copyButton.textContent = 'Copy failed';
+          window.setTimeout(() => {
+            copyButton.textContent = 'Copy output';
+          }, 1200);
+        }
+      });
+
+      render();
+    })();
+  </script>
+</body>
+</html>
