@@ -145,5 +145,54 @@
     "title": "Dead Lead Revival",
     "purpose": "Workflow detail page for dead lead revival.",
     "category": "workflow-detail"
+  },
+  {
+    "file": "templates/email.html",
+    "path": "site/templates/email.html",
+    "title": "Email",
+    "purpose": "Template detail page for email follow-up drafts.",
+    "category": "template-detail"
+  },
+  {
+    "file": "templates/sms.html",
+    "path": "site/templates/sms.html",
+    "title": "SMS",
+    "purpose": "Template detail page for SMS follow-up drafts.",
+    "category": "template-detail"
+  },
+  {
+    "file": "templates/calls.html",
+    "path": "site/templates/calls.html",
+    "title": "Calls",
+    "purpose": "Template detail page for call follow-up drafts.",
+    "category": "template-detail"
+  },
+  {
+    "file": "templates/voicemail.html",
+    "path": "site/templates/voicemail.html",
+    "title": "Voicemail",
+    "purpose": "Template detail page for voicemail follow-up drafts.",
+    "category": "template-detail"
+  },
+  {
+    "file": "templates/crm-tasks.html",
+    "path": "site/templates/crm-tasks.html",
+    "title": "CRM Tasks",
+    "purpose": "Template detail page for CRM task drafts.",
+    "category": "template-detail"
+  },
+  {
+    "file": "templates/objections.html",
+    "path": "site/templates/objections.html",
+    "title": "Objections",
+    "purpose": "Template detail page for common objection responses.",
+    "category": "template-detail"
+  },
+  {
+    "file": "templates/follow-up-calendars.html",
+    "path": "site/templates/follow-up-calendars.html",
+    "title": "Follow-Up Calendars",
+    "purpose": "Template detail page for follow-up calendar planning.",
+    "category": "template-detail"
   }
 ]

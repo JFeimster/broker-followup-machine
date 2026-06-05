@@ -45,6 +45,18 @@ Workflow detail pages:
 | `workflows/referral-nurture.html` | Detail page for referral partner nurture. |
 | `workflows/dead-lead-revival.html` | Detail page for dead lead revival. |
 
+Template detail pages:
+
+| File | Purpose |
+| --- | --- |
+| `templates/email.html` | Detail page for email follow-up drafts. |
+| `templates/sms.html` | Detail page for SMS follow-up drafts. |
+| `templates/calls.html` | Detail page for call follow-up drafts. |
+| `templates/voicemail.html` | Detail page for voicemail follow-up drafts. |
+| `templates/crm-tasks.html` | Detail page for CRM task drafts. |
+| `templates/objections.html` | Detail page for common objection responses. |
+| `templates/follow-up-calendars.html` | Detail page for follow-up calendar planning. |
+
 Notes:
 
 - Public site files live directly under `/site`.
