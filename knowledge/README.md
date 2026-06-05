@@ -1,48 +1,22 @@
 # `knowledge/`
 
-This is where the GPT upload-ready knowledge files live.
+This folder contains the upload-ready knowledge stack for Broker Follow-Up Machine GPT.
 
-Use this for:
+Use these files to keep the GPT consistent across broker follow-up workflows, messaging, automation rules, and safety review.
 
-- Broker workflow playbooks
-- SLA standards
-- CRM stages
-- Messaging libraries
-- Automation recipes
-- Decision trees
-- Swipe files
-- SOPs
+## Structure
 
-This folder should contain the files you upload directly to GPT knowledge.
+- `core/` for positioning, audience, operating rules, output format, and first-response behavior
+- `workflows/` for the seven core follow-up playbooks
+- `messaging/` for email, SMS, calls, voicemail, objections, and cadence guidance
+- `automation/` for CRM stages, tags, triggers, review checkpoints, and metrics
+- `safety/` for human review rules, restricted language, privacy, and automation boundaries
+- `examples/` for short sample outputs that show the expected format
 
-## Tier 1: `core-operating-system/`
-- `broker-follow-up-machine-sla-standards.md`
-- `broker-pipeline-operating-system.md`
-- `broker-crm-stage-library.md`
-- `broker-tags-statuses-library.md`
-- `broker-human-review-rules.md`
+## Use
 
-## Tier 2: workflow-playbooks/
-- `workflow-new-lead-playbook.md`
-- `workflow-missing-documents-playbook.md`
-- `workflow-stalled-deal-playbook.md`
-- `workflow-declined-borrower-reactivation.md`
-- `workflow-funded-client-renewals.md`
-- `workflow-referral-partner-nurture.md`
-- `workflow-dead-lead-revival.md`
-
-## Tier 3: messaging-library/
-- `email-template-library.md`
-- `sms-template-library.md`
-- `call-script-library.md`
-- `objection-handling-library.md`
-
-## Tier 4: automation-intelligence/
-- `automation-recipes.json`
-- `ghl-hubspot-pipedrive-mapping.md`
-- `workflow-decision-tree.json`
-
-## Tier 5: expert-examples
-- `broker-workflow-swipe-file.md`
-
----
+- Keep each file short, direct, and specific to Broker Follow-Up Machine GPT
+- Prefer plain Markdown with clear headings and lists
+- Keep borrower-facing language compliance-conscious
+- Mark human review points clearly
+- Avoid generic assistant guidance that does not support broker follow-up output

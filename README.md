@@ -31,6 +31,19 @@ Broker follow-up workflows, GPT knowledge files, Actions specs, and CRM automati
 - OpenAPI schema drafts
 - Vercel documentation site
 
+## Knowledge
+
+The `knowledge/` folder holds the upload-ready broker-specific knowledge stack for Broker Follow-Up Machine GPT.
+
+- `knowledge/core/` covers positioning, audience, operating rules, output format, and first-response behavior.
+- `knowledge/workflows/` covers the seven core follow-up playbooks.
+- `knowledge/messaging/` covers email, SMS, calls, voicemail, objections, and cadence guidance.
+- `knowledge/automation/` covers CRM stages, tags, triggers, review checkpoints, and metrics.
+- `knowledge/safety/` covers review rules, restricted language, privacy, and automation boundaries.
+- `knowledge/examples/` covers short sample outputs for consistency checks.
+
+Keep these files concise, product-specific, and ready for GPT upload.
+
 ## Actions planning
 
 The `actions/` folder is documentation-only planning for future GPT Actions.
