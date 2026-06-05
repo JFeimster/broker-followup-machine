@@ -22,6 +22,10 @@ Page map:
 | `safety.html` | Show human review rules and safer language patterns. |
 | `downloads.html` | Show downloadable asset categories and future file types. |
 | `assets.html` | Legacy compatibility page that points to `downloads.html`. |
+| `tools/index.html` | Static utility viewer for schemas, examples, and OpenAPI drafts. |
+| `tools/payload-viewer.html` | Static catalog of payload, webhook, and output examples. |
+| `tools/schema-index.html` | Static index of JSON Schema drafts. |
+| `tools/openapi-index.html` | Static index of OpenAPI draft placeholders. |
 
 Secondary pages:
 
@@ -61,4 +65,5 @@ Notes:
 
 - Public site files live directly under `/site`.
 - Preserve `/site/static/` as-is for reference variants and experiments.
+- Preserve `/site/tools/` as a static utility viewer for repo assets.
 - Keep borrower-facing language compliance-conscious.
