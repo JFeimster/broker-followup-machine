@@ -1,31 +1,21 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Sticky Nav Behavior
-    const nav = document.getElementById('mainNav');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-    });
+document.addEventListener("DOMContentLoaded", () => {
+  const path = window.location.pathname.replace(/\\/g, "/");
+  const currentFile = path.split("/").pop() || "index.html";
+  const normalizedFile = currentFile === "assets.html" ? "downloads.html" : (currentFile === "" ? "index.html" : currentFile);
 
-    // Simple interaction: Simulate mock card activity on dashboard hover
-    const dashboard = document.querySelector('.dashboard-panel');
-    const tags = document.querySelectorAll('.mock-card .tag');
-
-    if (dashboard) {
-        dashboard.addEventListener('mouseenter', () => {
-            tags.forEach(tag => {
-                const originalText = tag.innerText;
-                tag.innerText = "UPDATING...";
-                tag.style.opacity = "0.7";
-                
-                setTimeout(() => {
-                    tag.innerText = originalText;
-                    tag.style.opacity = "1";
-                }, 600);
-            });
-        });
+  document.querySelectorAll("[data-nav]").forEach((link) => {
+    const href = link.getAttribute("href") || "";
+    const linkFile = href.split("?")[0].split("#")[0].split("/").pop() || "index.html";
+    const isActive = linkFile === normalizedFile;
+    if (isActive) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
     }
+  });
+
+  const year = document.querySelector("[data-year]");
+  if (year) {
+    year.textContent = String(new Date().getFullYear());
+  }
 });

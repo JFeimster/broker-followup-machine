@@ -3,174 +3,226 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Broker Follow-Up Machine GPT | Revenue Ops Control Center</title>
+  <title>Broker Follow-Up Machine GPT | Public Docs</title>
+  <meta name="description" content="Public documentation site for Broker Follow-Up Machine GPT: workflows, knowledge stack, Actions planning, safety rules, templates, and downloads.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-
-  <nav class="sticky-nav" id="mainNav">
-    <div class="logo">
-      <span class="logo-accent">//</span> BROKER_OS
+<body data-page="home">
+  <header class="site-header">
+    <div class="topbar">
+      <span>Public static docs</span>
+      <span>Broker Follow-Up Machine GPT</span>
     </div>
-    <div class="nav-links">
-      <a href="#workflows">Workflows</a>
-      <a href="#pipeline">Pipeline</a>
-      <a href="#automation">Automation</a>
-      <a href="#safety">Guardrails</a>
-    </div>
-    <a href="#" class="btn btn-sm btn-cyan">USE GPT</a>
-  </nav>
-
-  <div class="sticky-rail">
-    <div class="rail-indicator pulse-lime"></div>
-    <span class="rail-text">SYSTEM ACTIVE</span>
-    <a href="#" class="btn btn-side btn-magenta">INITIALIZE</a>
-  </div>
-
-  <header class="hero">
-    <div class="hero-content">
-      <div class="status-badge">
-        <span class="dot pulse-orange"></span> PIPELINE LEAK DETECTED
-      </div>
-      <h1 class="hero-title">STOP LOSING BROKER DEALS TO <span class="highlight-cyan">FORGOTTEN FOLLOW-UP.</span></h1>
-      <p class="hero-sub">Turn manual chaos into a machine. Every lead needs an owner. Every deal needs a next action. Build follow-up systems that protect revenue.</p>
-      
-      <div class="hero-actions">
-        <a href="#" class="btn btn-lg btn-cyan">USE BROKER FOLLOW-UP MACHINE GPT</a>
-        <a href="#" class="btn btn-lg btn-outline">DOWNLOAD SEQUENCE PACK</a>
-      </div>
-    </div>
-
-    <div class="hero-visual">
-      <div class="dashboard-panel">
-        <div class="panel-header">
-          <span>LIVE PIPELINE REVENUE FLOW</span>
-          <span class="hud-text">SYS.ON</span>
-        </div>
-        <div class="panel-body">
-          <div class="mock-card alert-state">
-            <span class="tag tag-orange">STALLED - 48H</span>
-            <p>Missing Bank Statements - ACME Corp</p>
-          </div>
-          <div class="mock-card active-state">
-            <span class="tag tag-lime">DOCS COMPLETE</span>
-            <p>Awaiting Broker Review - TechFlow LLC</p>
-          </div>
-          <div class="mock-card neutral-state">
-            <span class="tag tag-cyan">RENEWAL WATCH</span>
-            <p>Day 120/180 - Sarah Jenkins</p>
-          </div>
-        </div>
-      </div>
+    <div class="header-inner page-wrap">
+      <a class="brand" href="index.html" aria-label="Broker Follow-Up Machine GPT home">
+        <span class="brand-mark">BFM</span>
+        <span class="brand-copy">
+          <strong>Broker Follow-Up Machine GPT</strong>
+          <span>Documentation site</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html" data-nav="home">Home</a>
+        <a href="agents.html" data-nav="agent">Agent</a>
+        <a href="knowledge.html" data-nav="knowledge">Knowledge</a>
+        <a href="actions.html" data-nav="actions">Actions</a>
+        <a href="workflows.html" data-nav="workflows">Workflows</a>
+        <a href="templates.html" data-nav="templates">Templates</a>
+        <a href="safety.html" data-nav="safety">Safety</a>
+        <a href="downloads.html" data-nav="downloads">Downloads</a>
+      </nav>
     </div>
   </header>
 
-  <section class="pipeline" id="pipeline">
-    <h2 class="section-title">DEAL VELOCITY TRACKER</h2>
-    <div class="pipeline-strip">
-      <div class="stage completed">NEW LEAD</div>
-      <div class="stage completed">CONTACT ATTEMPTED</div>
-      <div class="stage active pulse-cyan">DOCS REQUESTED</div>
-      <div class="stage pending">BROKER REVIEW</div>
-      <div class="stage pending">SUBMITTED</div>
-      <div class="stage pending">RENEWAL WATCH</div>
-    </div>
-  </section>
+  <main>
+    <section class="hero page-wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">Operational follow-up system</p>
+        <h1>Keep broker follow-up structured, visible, and human-reviewed.</h1>
+        <p class="lede">
+          Broker Follow-Up Machine GPT helps loan brokers and funding agency owners build borrower, referral partner, and pipeline follow-up systems that stay practical under pressure.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="agents.html">Open the GPT</a>
+          <a class="button button-secondary" href="workflows.html">View workflows</a>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Focus</dt>
+            <dd>Follow-up operations</dd>
+          </div>
+          <div>
+            <dt>Outputs</dt>
+            <dd>Scripts, rules, and prompts</dd>
+          </div>
+          <div>
+            <dt>Guardrail</dt>
+            <dd>Human review for sensitive messages</dd>
+          </div>
+        </dl>
+      </div>
 
-  <section class="workflows" id="workflows">
-    <div class="section-header">
-      <h2 class="section-title">CORE AUTOMATION PROTOCOLS</h2>
-      <p class="section-desc">Deploy revenue-saving sequences instantly.</p>
-    </div>
-    
-    <div class="grid-layout">
-      <div class="brutal-card card-cyan">
-        <h3>MISSING DOC FOLLOW-UP</h3>
-        <p>Chase stipulations without sounding pushy. Automated reminders trigger when client uploads stall.</p>
-        <span class="data-chip">FREQ: 24H / 48H / 72H</span>
-      </div>
-      <div class="brutal-card card-magenta">
-        <h3>STALLED DEAL REVIVAL</h3>
-        <p>Reactivate deals that ghosted after terms were sent. No desperate messaging, just operational prompts.</p>
-        <span class="data-chip">TRIG: 5 DAYS NO REPLY</span>
-      </div>
-      <div class="brutal-card card-lime">
-        <h3>FUNDED CLIENT RENEWALS</h3>
-        <p>Never lose a renewal to a competitor. System watches the calendar and prompts referral/renewal touchpoints.</p>
-        <span class="data-chip">WATCH: DAY 90 / 120 / 180</span>
-      </div>
-      <div class="brutal-card card-dark">
-        <h3>REFERRAL PARTNER NURTURE</h3>
-        <p>Keep CPAs, realtors, and equipment vendors engaged with high-value automated check-ins.</p>
-        <span class="data-chip">MODE: RELATIONSHIP BUILDING</span>
-      </div>
-    </div>
-  </section>
+      <aside class="hero-panel panel">
+        <div class="panel-kicker">System preview</div>
+        <div class="system-list">
+          <div class="system-row">
+            <span class="system-label">Workflow categories</span>
+            <span class="system-value">7 playbooks</span>
+          </div>
+          <div class="system-row">
+            <span class="system-label">Knowledge stack</span>
+            <span class="system-value">Core to examples</span>
+          </div>
+          <div class="system-row">
+            <span class="system-label">Actions planning</span>
+            <span class="system-value">None, key, OAuth</span>
+          </div>
+          <div class="system-row">
+            <span class="system-label">Template coverage</span>
+            <span class="system-value">Email, SMS, calls</span>
+          </div>
+          <div class="system-row">
+            <span class="system-label">Safety boundary</span>
+            <span class="system-value">Human review first</span>
+          </div>
+        </div>
+      </aside>
+    </section>
 
-  <section class="before-after">
-    <div class="ba-container">
-      <div class="ba-col before">
-        <h3>BEFORE: THE MESS</h3>
-        <ul class="brutal-list text-muted">
-          <li>Leaking pipeline</li>
-          <li>Forgotten borrower docs</li>
-          <li>Desperate manual texting</li>
-          <li>Lost renewal revenue</li>
+    <section class="section page-wrap">
+      <div class="section-heading">
+        <p class="eyebrow">Workflow categories</p>
+        <h2>What the GPT is built to handle</h2>
+        <p>
+          The site focuses on operational sequences that keep deals moving without drifting into hype or unsafe borrower claims.
+        </p>
+      </div>
+      <div class="feature-grid">
+        <article class="panel feature">
+          <h3>New lead follow-up</h3>
+          <p>Capture the first response window, set next steps, and reduce dropped handoffs.</p>
+        </article>
+        <article class="panel feature">
+          <h3>Missing document follow-up</h3>
+          <p>Keep requests organized so document collection stays specific and trackable.</p>
+        </article>
+        <article class="panel feature">
+          <h3>Stalled deal revival</h3>
+          <p>Reopen dead air with disciplined follow-up instead of repeated manual chasing.</p>
+        </article>
+        <article class="panel feature">
+          <h3>Declined borrower reactivation</h3>
+          <p>Use careful re-entry messaging and human review before any sensitive wording goes out.</p>
+        </article>
+        <article class="panel feature">
+          <h3>Funded client renewals</h3>
+          <p>Track return touchpoints and keep the post-fund relationship organized.</p>
+        </article>
+        <article class="panel feature">
+          <h3>Referral partner nurture</h3>
+          <p>Support repeat business from accountants, realtors, and other partner channels.</p>
+        </article>
+        <article class="panel feature">
+          <h3>Dead lead revival</h3>
+          <p>Bring old records back into motion with clear timing and controlled messaging.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section page-wrap split-section">
+      <article class="panel panel-strong">
+        <div class="section-heading compact">
+          <p class="eyebrow">Knowledge stack preview</p>
+          <h2>What the knowledge files will cover</h2>
+        </div>
+        <ul class="check-list">
+          <li>Core positioning, scope, and operating rules</li>
+          <li>Workflow playbooks for each follow-up category</li>
+          <li>Messaging patterns for email, SMS, calls, and voicemail</li>
+          <li>Automation rules, triggers, tags, and CRM stages</li>
+          <li>Examples and ready-to-review output formats</li>
         </ul>
+      </article>
+
+      <article class="panel panel-strong">
+        <div class="section-heading compact">
+          <p class="eyebrow">Actions preview</p>
+          <h2>How integrations are planned</h2>
+        </div>
+        <p class="body-copy">
+          The Action plan stays separated by auth type so the implementation path is easy to review and easy to expand later.
+        </p>
+        <div class="pill-row">
+          <span class="pill">None</span>
+          <span class="pill">API Key</span>
+          <span class="pill">OAuth</span>
+          <span class="pill">No-auth</span>
+        </div>
+        <p class="body-copy muted">
+          Safety stays explicit: human review before lender-specific statements, underwriting-related messages, sensitive documents, declines, and borrower-facing claims.
+        </p>
+      </article>
+    </section>
+
+    <section class="section page-wrap">
+      <div class="section-heading">
+        <p class="eyebrow">Safety preview</p>
+        <h2>Protect the message before it reaches the borrower</h2>
+        <p>
+          Human review is required anywhere the language can affect borrower trust, legal exposure, or lender-specific messaging.
+        </p>
       </div>
-      <div class="ba-divider">//</div>
-      <div class="ba-col after">
-        <h3 class="highlight-cyan">AFTER: THE MACHINE</h3>
-        <ul class="brutal-list text-white">
-          <li>Total pipeline visibility</li>
-          <li>Automated doc routing</li>
-          <li>Disciplined deal stages</li>
-          <li>Predictable revenue ops</li>
-        </ul>
+      <div class="two-column">
+        <article class="panel">
+          <h3>Review before sending</h3>
+          <ul class="bullet-list">
+            <li>Finance details or lender-specific statements</li>
+            <li>Decline-related wording or underwriting-related notes</li>
+            <li>Sensitive document references or file handling</li>
+            <li>Any borrower-facing claim about outcomes or certainty</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <h3>Keep the tone practical</h3>
+          <ul class="bullet-list">
+            <li>Use direct follow-up language</li>
+            <li>Prefer the next action over broad promises</li>
+            <li>Write for reviewable workflow steps</li>
+            <li>Keep the operator in control of the final send</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section page-wrap cta-band">
+      <div>
+        <p class="eyebrow">Start here</p>
+        <h2>Use the site as the public map for the GPT, knowledge stack, and operating rules.</h2>
+      </div>
+      <div class="hero-actions">
+        <a class="button button-primary" href="knowledge.html">Browse knowledge</a>
+        <a class="button button-secondary" href="downloads.html">See downloads</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-wrap footer-grid">
+      <div>
+        <strong>Broker Follow-Up Machine GPT</strong>
+        <p>Practical follow-up systems for broker teams and funding agency owners.</p>
+      </div>
+      <div>
+        <p>Human review before borrower-facing claims, lender-specific statements, declines, underwriting-related messages, and sensitive documents.</p>
+      </div>
+      <div class="footer-meta">
+        <span>Public docs</span>
+        <span data-year></span>
       </div>
     </div>
-  </section>
-
-  <section class="automation" id="automation">
-    <h2 class="section-title">LOGIC // FLOW</h2>
-    <div class="automation-map">
-      <div class="logic-node trigger">TRIGGER: Lead Status = Stalled</div>
-      <div class="logic-line"></div>
-      <div class="logic-node condition">CONDITION: Docs Missing > 48 Hrs</div>
-      <div class="logic-line"></div>
-      <div class="logic-node action pulse-magenta">ACTION: Send Soft Reminder SMS</div>
-      <div class="logic-line"></div>
-      <div class="logic-node human">HUMAN REVIEW: Approve Next Step</div>
-    </div>
-  </section>
-
-  <section class="safety" id="safety">
-    <h2 class="section-title text-orange">CRITICAL GUARDRAILS</h2>
-    <div class="safety-grid">
-      <div class="safety-card">
-        <div class="alert-icon">⚠️</div>
-        <h4>HUMAN REVIEW REQUIRED</h4>
-        <p>Pause before sensitive communication. No automated declines.</p>
-      </div>
-      <div class="safety-card">
-        <div class="alert-icon">🛑</div>
-        <h4>DO NOT AUTO-SEND TERMS</h4>
-        <p>Lender approvals require broker validation before client delivery.</p>
-      </div>
-      <div class="safety-card">
-        <div class="alert-icon">🔒</div>
-        <h4>NO APPROVAL PROMISES</h4>
-        <p>GPT is restricted from making specific lender claims or guarantees.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer class="cta-section">
-    <h2 class="giant-text">YOUR PIPELINE IS NOT BROKEN.<br>YOUR FOLLOW-UP SYSTEM IS.</h2>
-    <a href="#" class="btn btn-xl btn-cyan pulse-glow">DEPLOY THE MACHINE NOW</a>
   </footer>
 
   <script src="script.js"></script>

@@ -1,55 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safety & Guardrails | Broker Follow-Up Machine</title>
-    <meta name="description" content="Mandatory human review guidelines and compliance constraints for the Broker Follow-Up Machine.">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safety | Broker Follow-Up Machine GPT</title>
+  <meta name="description" content="Show human review rules, risky phrases to avoid, safer phrases to use, borrower privacy rules, and automation boundaries.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <nav class="sticky-nav">
-        <div class="logo"><span class="logo-accent">//</span> BROKER_OS_DOCS</div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="agents.html">Agent</a>
-            <a href="knowledge.html">Knowledge</a>
-            <a href="actions.html">Actions</a>
-            <a href="workflows.html">Workflows</a>
-            <a href="templates.html">Templates</a>
-            <a href="safety.html">Safety</a>
-            <a href="assets.html">Assets</a>
+<body data-page="safety">
+  <header class="site-header">
+    <div class="topbar">
+      <span>Public static docs</span>
+      <span>Broker Follow-Up Machine GPT</span>
+    </div>
+    <div class="header-inner page-wrap">
+      <a class="brand" href="index.html" aria-label="Broker Follow-Up Machine GPT home">
+        <span class="brand-mark">BFM</span>
+        <span class="brand-copy">
+          <strong>Broker Follow-Up Machine GPT</strong>
+          <span>Documentation site</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html" data-nav="home">Home</a>
+        <a href="agents.html" data-nav="agent">Agent</a>
+        <a href="knowledge.html" data-nav="knowledge">Knowledge</a>
+        <a href="actions.html" data-nav="actions">Actions</a>
+        <a href="workflows.html" data-nav="workflows">Workflows</a>
+        <a href="templates.html" data-nav="templates">Templates</a>
+        <a href="safety.html" data-nav="safety">Safety</a>
+        <a href="downloads.html" data-nav="downloads">Downloads</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap page-body">
+    <section class="page-intro panel">
+      <p class="eyebrow">Safety</p>
+      <h1>Human review sits in front of sensitive output.</h1>
+      <p class="lede">
+        The site should make the review boundary obvious so the GPT stays useful for operators without pushing into borrower-facing statements that need a person to check them first.
+      </p>
+    </section>
+
+    <section class="section split-section">
+      <article class="panel">
+        <div class="section-heading compact">
+          <p class="eyebrow">Human review rules</p>
+          <h2>Stop before these message types</h2>
         </div>
-    </nav>
-
-    <header class="hero">
-        <h1 class="hero-title">Automate the Draft.<br><span class="highlight-cyan">Humanize the Send.</span></h1>
-        <p class="hero-sub">Protect your agency. The machine drafts the communication, but an operator must always review. Read our strict boundaries on language and execution.</p>
-    </header>
-
-    <main class="workflows">
-        <div class="grid-layout">
-            <section class="brutal-card card-orange">
-                <h3 class="text-orange">Mandatory Human Review</h3>
-                <p>Why every outbound message must be manually approved and clicked by a broker or processor. No exceptions.</p>
-            </section>
-            <section class="brutal-card card-orange">
-                <h3 class="text-orange">Banned Language</h3>
-                <p>Strict rules against the GPT using restricted language. It is explicitly trained to never promise approvals, rates, or guarantees.</p>
-            </section>
-            <section class="brutal-card card-dark">
-                <h3>Data Privacy Standards</h3>
-                <p>Guidelines for omitting sensitive PII (Personally Identifiable Information) before processing through the GPT.</p>
-            </section>
-            <section class="brutal-card card-dark">
-                <h3>Circuit Breakers</h3>
-                <p>Standardized breaks in the workflow for manual CRM intervention to prevent automation runaway.</p>
-            </section>
+        <ul class="bullet-list">
+          <li>Finance details or lender-specific statements</li>
+          <li>Decline-related messages</li>
+          <li>Underwriting-related notes</li>
+          <li>Sensitive document references</li>
+          <li>Borrower-facing claims or certainty language</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <div class="section-heading compact">
+          <p class="eyebrow">Borrower privacy</p>
+          <h2>Keep private data out of the draft</h2>
         </div>
-    </main>
+        <ul class="bullet-list">
+          <li>Do not add real borrower financial data</li>
+          <li>Do not add SSNs, tax records, credit reports, or bank statements</li>
+          <li>Do not expose private account details in examples</li>
+          <li>Keep upload-ready files generic where possible</li>
+        </ul>
+      </article>
+    </section>
 
-    <footer class="cta-section">
-        <a href="workflows.html" class="btn btn-xl btn-cyan">REVIEW SAFETY PROTOCOL</a>
-    </footer>
+    <section class="section split-section">
+      <article class="panel panel-strong">
+        <div class="section-heading compact">
+          <p class="eyebrow">Risky phrases to avoid</p>
+          <h2>Words that should not appear in borrower-facing copy</h2>
+        </div>
+        <ul class="bullet-list">
+          <li>Anything that implies certainty or an outcome promise</li>
+          <li>Anything that sounds like a lender promise without review</li>
+          <li>Anything that states a sensitive decision as final without a human check</li>
+          <li>Anything that exposes private file contents or hidden data</li>
+        </ul>
+      </article>
+      <article class="panel panel-strong">
+        <div class="section-heading compact">
+          <p class="eyebrow">Safer phrases to use</p>
+          <h2>Language that keeps the operator in control</h2>
+        </div>
+        <ul class="bullet-list">
+          <li>“Please review the next step.”</li>
+          <li>“Human review required before sending.”</li>
+          <li>“Here is the draft for operator review.”</li>
+          <li>“Use this as a starting point, then verify the final wording.”</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Automation boundaries</p>
+        <h2>What the system should not do automatically</h2>
+      </div>
+      <div class="panel">
+        <ul class="check-list">
+          <li>Do not auto-send sensitive messages without review</li>
+          <li>Do not hide the source of lender-specific language</li>
+          <li>Do not move private documents without operator oversight</li>
+          <li>Do not turn reviewable copy into final borrower text by default</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-wrap footer-grid">
+      <div>
+        <strong>Broker Follow-Up Machine GPT</strong>
+        <p>Practical follow-up systems for broker teams and funding agency owners.</p>
+      </div>
+      <div>
+        <p>Human review before borrower-facing claims, lender-specific statements, declines, underwriting-related messages, and sensitive documents.</p>
+      </div>
+      <div class="footer-meta">
+        <span>Public docs</span>
+        <span data-year></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
