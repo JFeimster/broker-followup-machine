@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safety Language Checker | Broker Follow-Up Machine GPT</title>
+  <meta name="description" content="Local-only safety language checker for broker follow-up copy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .checker-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 1.25rem;
+      align-items: start;
+    }
+    .checker-form {
+      display: grid;
+      gap: 1rem;
+    }
+    .field {
+      display: grid;
+      gap: 0.4rem;
+    }
+    .field label {
+      font-weight: 600;
+      font-size: 0.94rem;
+    }
+    .field textarea {
+      width: 100%;
+      min-height: 280px;
+      resize: vertical;
+      border-radius: 18px;
+      border: 1px solid rgba(34, 46, 70, 0.14);
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--text);
+      padding: 1rem 1.05rem;
+      font: inherit;
+      line-height: 1.6;
+    }
+    .results-grid {
+      display: grid;
+      gap: 0.9rem;
+    }
+    .result-card {
+      border: 1px solid rgba(34, 46, 70, 0.1);
+      border-radius: 18px;
+      padding: 1rem;
+      background: rgba(247, 247, 241, 0.8);
+    }
+    .result-card h3 {
+      margin: 0 0 0.45rem;
+      font-size: 1rem;
+    }
+    .summary-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.35rem 0 0.7rem;
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 0.38rem 0.72rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .status-clear { background: rgba(38, 120, 82, 0.12); color: #1f6a46; }
+    .status-review { background: rgba(229, 127, 62, 0.14); color: #9c5120; }
+    .status-human { background: rgba(169, 61, 61, 0.14); color: #8f2f2f; }
+    .mono-box {
+      border-radius: 18px;
+      border: 1px solid rgba(34, 46, 70, 0.12);
+      background: #0f1720;
+      color: #f2f4f8;
+      padding: 1rem;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      word-break: break-word;
+      min-height: 180px;
+    }
+    .check-list {
+      display: grid;
+      gap: 0.45rem;
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+    .check-list li.flagged {
+      font-weight: 600;
+    }
+    .check-list li.safe {
+      color: var(--muted);
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+    .notice {
+      border-left: 4px solid var(--accent);
+      background: rgba(229, 127, 62, 0.09);
+      padding: 0.9rem 1rem;
+      border-radius: 12px;
+    }
+    @media (max-width: 960px) {
+      .checker-layout,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body data-page="tools">
+  <header class="site-header">
+    <div class="topbar">
+      <span>Public static docs</span>
+      <span>Broker Follow-Up Machine GPT</span>
+    </div>
+    <div class="header-inner page-wrap">
+      <a class="brand" href="../index.html" aria-label="Broker Follow-Up Machine GPT home">
+        <span class="brand-mark">BFM</span>
+        <span class="brand-copy">
+          <strong>Broker Follow-Up Machine GPT</strong>
+          <span>Documentation site</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html" data-nav="home">Home</a>
+        <a href="../agents.html" data-nav="agent">Agent</a>
+        <a href="../knowledge.html" data-nav="knowledge">Knowledge</a>
+        <a href="../actions.html" data-nav="actions">Actions</a>
+        <a href="../workflows.html" data-nav="workflows">Workflows</a>
+        <a href="../templates.html" data-nav="templates">Templates</a>
+        <a href="../safety.html" data-nav="safety">Safety</a>
+        <a href="../downloads.html" data-nav="downloads">Downloads</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap page-body">
+    <section class="page-intro panel">
+      <p class="eyebrow">Tools</p>
+      <h1>Safety Language Checker</h1>
+      <p class="lede">
+        Local-only review helper, not legal advice and not a brand-voice filter. Use it like a smoke alarm: it flags risky wording, explains why something may need review, and suggests safer alternatives without stripping out direct, operator-focused energy.
+      </p>
+      <div class="notice">
+        This page runs entirely in your browser. It does not send or store your text anywhere.
+      </div>
+    </section>
+
+    <section class="section checker-layout">
+      <article class="panel">
+        <form id="checkerForm" class="checker-form">
+          <div class="field">
+            <label for="copyInput">Paste copy to check</label>
+            <textarea id="copyInput" name="copyInput">Stop losing deals to messy follow-up. Clean up your pipeline and revive old leads with a system that keeps the next action clear.</textarea>
+          </div>
+
+          <div class="actions-row">
+            <button class="button" type="button" id="analyzeButton">Analyze</button>
+            <button class="button button-secondary" type="button" id="resetButton">Reset</button>
+          </div>
+        </form>
+      </article>
+
+      <aside class="results-grid">
+        <article class="result-card">
+          <h3>Review category summary</h3>
+          <div id="statusPill" class="status-pill status-clear">Clear</div>
+          <div class="summary-row" id="summaryPills"></div>
+          <ul class="check-list" id="issueList"></ul>
+        </article>
+
+        <article class="result-card">
+          <h3>Suggested rewrite</h3>
+          <div id="rewriteBox" class="mono-box" aria-live="polite"></div>
+          <div class="hero-actions" style="margin-top: 1rem;">
+            <button class="button button-secondary" type="button" id="copyRewrite">Copy suggested rewrite</button>
+          </div>
+        </article>
+
+        <article class="result-card">
+          <h3>Results panel</h3>
+          <div id="resultsBox" class="mono-box" aria-live="polite"></div>
+        </article>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-wrap footer-grid">
+      <div>
+        <strong>Broker Follow-Up Machine GPT</strong>
+        <p>Practical follow-up systems for broker teams and funding agency owners.</p>
+      </div>
+      <div>
+        <p>Human review before borrower-facing claims, lender-specific statements, declines, underwriting-related messages, and sensitive documents.</p>
+      </div>
+      <div class="footer-meta">
+        <span>Public docs</span>
+        <span data-year></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>
+    (() => {
+      const copyInput = document.getElementById('copyInput');
+      const analyzeButton = document.getElementById('analyzeButton');
+      const resetButton = document.getElementById('resetButton');
+      const copyRewriteButton = document.getElementById('copyRewrite');
+      const statusPill = document.getElementById('statusPill');
+      const summaryPills = document.getElementById('summaryPills');
+      const issueList = document.getElementById('issueList');
+      const rewriteBox = document.getElementById('rewriteBox');
+      const resultsBox = document.getElementById('resultsBox');
+
+      const highReviewTerms = [
+        'approval',
+        'approved',
+        'qualify',
+        'qualified',
+        'qualification',
+        'eligible',
+        'eligibility',
+        'guaranteed',
+        'guarantee',
+        'rate',
+        'rates',
+        'term',
+        'terms',
+      ];
+
+      const reviewTriggers = [
+        { key: 'lender_specific_statement', label: 'Lender-specific statement', patterns: ['lender-specific', 'lender says', 'the lender says', 'investor says', 'program says', 'investor requirement'] },
+        { key: 'underwriting_related_message', label: 'Underwriting-related message', patterns: ['underwriting', 'underwriter', 'conditions review', 'credit decision'] },
+        { key: 'decline_related_message', label: 'Decline-related message', patterns: ['declined', 'decline', 'rejected', 'not approved'] },
+        { key: 'sensitive_document_reference', label: 'Sensitive document reference', patterns: ['bank statement', 'tax return', 'ssn', 'social security', 'credit report', 'w-2', 'w2', 'driver license', 'bank statement attached'] },
+        { key: 'borrower_facing_claim', label: 'Borrower-facing claim', patterns: ['you qualify', 'you are approved', 'guarantee', 'best terms', 'locked in', 'funding guaranteed'] },
+      ];
+
+      const punchyExamples = [
+        'stop losing deals',
+        'clean up your pipeline',
+        'revive old leads',
+        'follow up faster',
+        'protect your revenue',
+        'stop letting deals rot',
+        'get your next action clear',
+        'turn chaos into a system',
+      ];
+
+      const replacements = [
+        { find: /\byou're approved\b/gi, replace: 'your file is ready for broker review' },
+        { find: /\byou are approved\b/gi, replace: 'your file is ready for broker review' },
+        { find: /\bapproved for funding\b/gi, replace: 'ready for broker review' },
+        { find: /\byou qualify\b/gi, replace: 'this may be worth reviewing' },
+        { find: /\bqualified\b/gi, replace: 'ready for broker review' },
+        { find: /\bguarantee better terms\b/gi, replace: 'review the file and look for a stronger follow-up path' },
+        { find: /\bguaranteed\b/gi, replace: 'reviewed carefully' },
+        { find: /\bbest terms\b/gi, replace: 'a stronger follow-up path' },
+        { find: /\brate(?:s)?\b/gi, replace: 'follow-up path' },
+        { find: /\bterm(?:s)?\b/gi, replace: 'follow-up path' },
+      ];
+
+      function normalize(text) {
+        return text.toLowerCase();
+      }
+
+      function findMatches(text, patterns) {
+        const lower = normalize(text);
+        return patterns.filter((pattern) => lower.includes(pattern));
+      }
+
+      function analyze() {
+        const text = copyInput.value.trim();
+        const lower = normalize(text);
+        const summary = [];
+        const issues = [];
+        let severeCount = 0;
+        let reviewCount = 0;
+
+        const phrasesSeen = punchyExamples.filter((phrase) => lower.includes(phrase));
+        if (phrasesSeen.length) {
+          summary.push({ label: 'Punchy operator language', tone: 'safe' });
+        }
+
+        const highHits = highReviewTerms.filter((term) => new RegExp(`\\b${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i').test(text));
+        if (highHits.length) {
+          reviewCount += highHits.length;
+          summary.push({ label: `${highHits.length} restricted term${highHits.length === 1 ? '' : 's'}` });
+          issues.push(`Review recommended: found ${highHits.join(', ')}.`);
+        }
+
+        reviewTriggers.forEach((trigger) => {
+          const hits = findMatches(text, trigger.patterns);
+          if (hits.length) {
+            severeCount += 1;
+            summary.push({ label: trigger.label });
+            issues.push(`Human review required: ${trigger.label.toLowerCase()} detected via ${hits[0]}.`);
+          }
+        });
+
+        const hasBorrowerPromise = /(you are approved|you're approved|guarantee|qualify|eligible|best terms|locked in)/i.test(text);
+        if (hasBorrowerPromise) {
+          severeCount += 1;
+        }
+
+        let severity = 'Clear';
+        if (severeCount > 0) {
+          severity = 'Human Review Required';
+        } else if (reviewCount > 0) {
+          severity = 'Review Recommended';
+        }
+
+        const statusClass = severity === 'Clear' ? 'status-clear' : severity === 'Review Recommended' ? 'status-review' : 'status-human';
+        statusPill.className = `status-pill ${statusClass}`;
+        statusPill.textContent = severity;
+
+        summaryPills.innerHTML = summary.length
+          ? summary.map((item) => `<span class="pill">${item.label}</span>`).join('')
+          : '<span class="pill">No review triggers detected</span>';
+
+        issueList.innerHTML = issues.length
+          ? issues.map((line, index) => `<li class="${index === 0 ? 'flagged' : 'safe'}">${line}</li>`).join('')
+          : '<li class="safe">No restricted terms or review triggers found. The copy can stay direct if it remains grounded in process language.</li>';
+
+        const rewrite = buildRewrite(text);
+        rewriteBox.textContent = rewrite || 'No rewrite needed. If you want a safer angle, replace outcome promises with process language and keep the message direct.';
+
+        resultsBox.textContent = [
+          `Severity: ${severity}`,
+          `Restricted terms found: ${highHits.length ? highHits.join(', ') : 'none'}`,
+          `Human review triggers: ${severeCount > 0 ? 'yes' : 'no'}`,
+          `Punchy language examples found: ${phrasesSeen.length ? phrasesSeen.join(', ') : 'none'}`,
+          '',
+          severity === 'Clear'
+            ? 'This reads as direct operator copy. Keep it if the underlying claim is grounded.'
+            : 'Broker should verify before sending. Consider the rewrite below for a safer pass.',
+        ].join('\n');
+      }
+
+      function buildRewrite(text) {
+        if (!text.trim()) {
+          return '';
+        }
+
+        let output = text;
+        replacements.forEach((rule) => {
+          output = output.replace(rule.find, rule.replace);
+        });
+
+        if (/you qualify/i.test(output)) {
+          output = output.replace(/you qualify/gi, 'this may be worth reviewing');
+        }
+        if (/approved/i.test(output)) {
+          output = output.replace(/approved/gi, 'ready for broker review');
+        }
+
+        return output;
+      }
+
+      analyzeButton.addEventListener('click', analyze);
+      resetButton.addEventListener('click', () => {
+        copyInput.value = 'Stop losing deals to messy follow-up. Clean up your pipeline and revive old leads with a system that keeps the next action clear.';
+        analyze();
+      });
+      copyRewriteButton.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(rewriteBox.textContent);
+          copyRewriteButton.textContent = 'Copied';
+          window.setTimeout(() => {
+            copyRewriteButton.textContent = 'Copy suggested rewrite';
+          }, 1200);
+        } catch (error) {
+          copyRewriteButton.textContent = 'Copy failed';
+          window.setTimeout(() => {
+            copyRewriteButton.textContent = 'Copy suggested rewrite';
+          }, 1200);
+        }
+      });
+
+      analyze();
+    })();
+  </script>
+</body>
+</html>

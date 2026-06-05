@@ -70,6 +70,13 @@
     "category": "tools"
   },
   {
+    "file": "tools/safety-language-checker.html",
+    "path": "site/tools/safety-language-checker.html",
+    "title": "Safety Language Checker",
+    "purpose": "Static in-browser checker for broker copy safety language.",
+    "category": "tools"
+  },
+  {
     "file": "tools/payload-viewer.html",
     "path": "site/tools/payload-viewer.html",
     "title": "Payload Viewer",
