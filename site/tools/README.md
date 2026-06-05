@@ -14,6 +14,7 @@ This folder contains a lightweight static viewer for the repository's schemas, e
 - `payload-builder.html` for a local static payload builder
 - `safety-language-checker.html` for local safety-language review
 - `sequence-builder.html` for local follow-up sequence drafting
+- `crm-stage-map-builder.html` for local CRM stage map planning
 - `payload-viewer.html` for payload, webhook, and output examples
 - `schema-index.html` for JSON Schema drafts
 - `openapi-index.html` for OpenAPI drafts
