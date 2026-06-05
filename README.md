@@ -83,6 +83,7 @@ Then open:
 
 - `http://localhost:8080/site/` for the public docs site
 - `http://localhost:8080/site/tools/` for the static utility viewer
+- `http://localhost:8080/site/tools/payload-builder.html` for the local payload builder
 - `http://localhost:8080/site/static/` for the static variant directory
 - `http://localhost:8080/site/static/brutalist/` or any other variant folder to open one concept directly
 

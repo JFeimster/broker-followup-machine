@@ -22,6 +22,7 @@ Page map:
 | `safety.html` | Show human review rules and safer language patterns. |
 | `downloads.html` | Show downloadable asset categories and future file types. |
 | `assets.html` | Legacy compatibility page that points to `downloads.html`. |
+| `tools/payload-builder.html` | Static in-browser payload builder. |
 | `tools/index.html` | Static utility viewer for schemas, examples, and OpenAPI drafts. |
 | `tools/payload-viewer.html` | Static catalog of payload, webhook, and output examples. |
 | `tools/schema-index.html` | Static index of JSON Schema drafts. |

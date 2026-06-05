@@ -63,6 +63,13 @@
     "category": "tools"
   },
   {
+    "file": "tools/payload-builder.html",
+    "path": "site/tools/payload-builder.html",
+    "title": "Payload Builder",
+    "purpose": "Static in-browser payload builder for local previews.",
+    "category": "tools"
+  },
+  {
     "file": "tools/payload-viewer.html",
     "path": "site/tools/payload-viewer.html",
     "title": "Payload Viewer",
