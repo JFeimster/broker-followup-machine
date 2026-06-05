@@ -1,17 +1,30 @@
-# `actions/`
+# Actions Planning
 
-This is where the GPT Actions documentation lives.
+This folder holds the planning layer for Broker Follow-Up Machine GPT Actions.
 
-Use this for:
+Use it to define:
 
-- Authentication explanations
-- No-auth action catalogs
-- API Key action catalogs
-- OAuth action catalogs
-- Safety rules
-- Action selection rules
-- Human review rules
+- what the GPT should be able to request or generate
+- which workflows stay no-auth, API key, or OAuth
+- where webhooks fit in the architecture
+- what human review must block before any send or sync
 
-This keeps Actions separate from general GPT knowledge.
+The planning scope is documentation only. Do not add live integrations, secrets, or executable network code here.
 
----
+## Folder map
+
+| Path | Purpose |
+| --- | --- |
+| `catalog.md` | High-level index of the Actions layer. |
+| `selection-rules.md` | Rules for choosing the right integration path. |
+| `safety.md` | Safety boundaries for all Action planning. |
+| `none/` | No-auth Action planning. |
+| `api-key/` | API key Action planning. |
+| `oauth/` | OAuth Action planning. |
+| `webhooks/` | Inbound and event-driven Action planning. |
+| `schemas/` | OpenAPI and payload planning assets. |
+| `review/` | Human review and restricted language guidance. |
+
+## Next implementation step
+
+Review the catalog first, then fill in the narrowest viable Action path for each workflow before considering any live integration.
