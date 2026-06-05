@@ -41,6 +41,7 @@ The `knowledge/` folder holds the upload-ready broker-specific knowledge stack f
 - `knowledge/automation/` covers CRM stages, tags, triggers, review checkpoints, and metrics.
 - `knowledge/safety/` covers review rules, restricted language, privacy, and automation boundaries.
 - `knowledge/examples/` covers short sample outputs for consistency checks.
+- `business/` covers offer, funnel, pricing, and service packaging strategy.
 
 Keep these files concise, product-specific, and ready for GPT upload.
 
@@ -74,6 +75,7 @@ Then open:
 | Folder | Purpose |
 |---|---|
 | `/knowledge` | Upload-ready GPT knowledge files |
+| `/business` | Offer, funnel, pricing, and service packaging strategy |
 | `/actions` | GPT Actions planning and auth documentation |
 | `/schemas` | OpenAPI and JSON schema files |
 | `/examples` | Sample outputs and test cases |
