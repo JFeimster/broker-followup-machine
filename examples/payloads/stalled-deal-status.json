@@ -1,0 +1,26 @@
+{
+  "record_type": "workflow-request",
+  "workflow_id": "stalled-deal",
+  "business_name": "Example Business LLC",
+  "audience": "Broker operations",
+  "channel": "call",
+  "goal": "Restart activity on a quiet deal with a short operator-ready sequence.",
+  "stage": "stalled",
+  "desired_outputs": [
+    "call",
+    "voicemail",
+    "follow-up-calendar"
+  ],
+  "inputs": {
+    "last_contact_date": "2026-06-01",
+    "next_step": "confirm file status"
+  },
+  "human_review_required": true,
+  "safety_flags": {
+    "lender_specific_statement": false,
+    "underwriting_related_message": true,
+    "decline_related_message": false,
+    "sensitive_document_handling": false,
+    "borrower_facing_claim": false
+  }
+}

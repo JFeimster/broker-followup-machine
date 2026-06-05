@@ -1,0 +1,50 @@
+openapi: 3.1.0
+info:
+  title: Lead Intake Draft API
+  version: 0.1.0
+  description: Static OpenAPI draft for lead intake payload planning only.
+servers:
+  - url: https://example.com
+paths:
+  /lead-intake:
+    post:
+      summary: Submit lead intake data
+      operationId: submitLeadIntakeDraft
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required:
+                - record_type
+                - workflow_id
+                - business_name
+                - contact_name
+                - source
+              properties:
+                record_type:
+                  type: string
+                  const: lead-intake
+                workflow_id:
+                  type: string
+                  enum:
+                    - new-lead
+                    - missing-docs
+                    - stalled-deal
+                    - declined-reactivation
+                    - funded-renewals
+                    - referral-nurture
+                    - dead-lead-revival
+                business_name:
+                  type: string
+                contact_name:
+                  type: string
+                source:
+                  type: string
+                human_review_required:
+                  type: boolean
+      responses:
+        "200":
+          description: Draft accepted for review

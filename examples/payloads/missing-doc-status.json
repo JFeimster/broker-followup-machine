@@ -1,0 +1,29 @@
+{
+  "record_type": "workflow-request",
+  "workflow_id": "missing-docs",
+  "business_name": "Example Business LLC",
+  "audience": "Borrower support team",
+  "channel": "email",
+  "goal": "Request missing documents with a short, review-aware draft.",
+  "stage": "waiting-on-documents",
+  "desired_outputs": [
+    "email",
+    "sms",
+    "crm-task"
+  ],
+  "inputs": {
+    "missing_items": [
+      "bank statement",
+      "photo ID"
+    ],
+    "contact_name": "Example Broker"
+  },
+  "human_review_required": true,
+  "safety_flags": {
+    "lender_specific_statement": false,
+    "underwriting_related_message": true,
+    "decline_related_message": false,
+    "sensitive_document_handling": true,
+    "borrower_facing_claim": false
+  }
+}

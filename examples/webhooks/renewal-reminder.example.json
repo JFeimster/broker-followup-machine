@@ -1,0 +1,23 @@
+{
+  "event_id": "evt_example_renewal_001",
+  "event_type": "renewal-reminder",
+  "workflow_id": "funded-renewals",
+  "source_system": "crm-webhook",
+  "received_at": "2026-06-05T12:15:00Z",
+  "business_name": "Example Business LLC",
+  "contact_name": "Example Business Owner",
+  "contact_role": "Owner",
+  "human_review_required": true,
+  "safety_flags": {
+    "lender_specific_statement": false,
+    "underwriting_related_message": false,
+    "decline_related_message": false,
+    "sensitive_document_handling": false,
+    "borrower_facing_claim": false
+  },
+  "payload": {
+    "stage": "post-funding",
+    "renewal_context": "May be worth reviewing the account for a future conversation."
+  },
+  "example_only": true
+}

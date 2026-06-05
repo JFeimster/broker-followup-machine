@@ -1,0 +1,24 @@
+{
+  "event_id": "evt_example_inbound_lead_001",
+  "event_type": "lead-intake",
+  "workflow_id": "new-lead",
+  "source_system": "website-form",
+  "received_at": "2026-06-05T12:00:00Z",
+  "business_name": "Example Business LLC",
+  "contact_name": "Example Broker",
+  "contact_role": "Loan Broker",
+  "human_review_required": true,
+  "safety_flags": {
+    "lender_specific_statement": false,
+    "underwriting_related_message": false,
+    "decline_related_message": false,
+    "sensitive_document_handling": false,
+    "borrower_facing_claim": false
+  },
+  "payload": {
+    "source": "website-form",
+    "requested_follow_up_channel": "email",
+    "notes": "Example inbound lead webhook."
+  },
+  "example_only": true
+}

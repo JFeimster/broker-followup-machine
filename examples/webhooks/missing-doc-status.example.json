@@ -1,0 +1,26 @@
+{
+  "event_id": "evt_example_missing_docs_001",
+  "event_type": "missing-doc-status",
+  "workflow_id": "missing-docs",
+  "source_system": "crm-webhook",
+  "received_at": "2026-06-05T12:05:00Z",
+  "business_name": "Example Business LLC",
+  "contact_name": "Example Broker",
+  "contact_role": "Loan Broker",
+  "human_review_required": true,
+  "safety_flags": {
+    "lender_specific_statement": false,
+    "underwriting_related_message": true,
+    "decline_related_message": false,
+    "sensitive_document_handling": true,
+    "borrower_facing_claim": false
+  },
+  "payload": {
+    "missing_items": [
+      "bank statement",
+      "photo ID"
+    ],
+    "stage": "waiting-on-documents"
+  },
+  "example_only": true
+}
