@@ -21,3 +21,22 @@ This folder contains quick-launch static site variants for Broker Follow-Up Mach
 | `brutalist-futurism/` | `futurist-brutalist/` |
 
 ---
+
+## Recommended landing page sections
+For index.html, structure the landing page like this:
+
+Hero
+├── Broker Follow-Up Machine
+├── Turn messy broker pipelines into automated follow-up systems.
+└── CTA: View Knowledge Stack / View Actions
+
+Sections
+├── What This GPT Does
+├── Knowledge Stack
+├── Workflow Playbooks
+├── Actions Knowledge Stack
+├── No-Authorization Actions
+├── API Key + OAuth Roadmap
+├── Safety + Human Review Rules
+├── Downloadable Files
+└── Repo / GPT Access Links
