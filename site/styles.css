@@ -413,6 +413,19 @@ main {
   list-style: none;
 }
 
+.ordered-list {
+  margin: 0;
+  padding-left: 1.3rem;
+}
+
+.ordered-list li {
+  line-height: 1.7;
+}
+
+.ordered-list li + li {
+  margin-top: 0.7rem;
+}
+
 .check-list li,
 .bullet-list li,
 .prompt-list li {

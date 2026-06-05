@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Launch Path | Broker Follow-Up Machine GPT</title>
+  <meta name="description" content="Implementation roadmap for what to build first with Broker Follow-Up Machine GPT.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="launch-path">
+  <header class="site-header">
+    <div class="topbar">
+      <span>Public static docs</span>
+      <span>Broker Follow-Up Machine GPT</span>
+    </div>
+    <div class="header-inner page-wrap">
+      <a class="brand" href="index.html" aria-label="Broker Follow-Up Machine GPT home">
+        <span class="brand-mark">BFM</span>
+        <span class="brand-copy">
+          <strong>Broker Follow-Up Machine GPT</strong>
+          <span>Documentation site</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html" data-nav="home">Home</a>
+        <a href="agents.html" data-nav="agent">Agent</a>
+        <a href="knowledge.html" data-nav="knowledge">Knowledge</a>
+        <a href="actions.html" data-nav="actions">Actions</a>
+        <a href="workflows.html" data-nav="workflows">Workflows</a>
+        <a href="templates.html" data-nav="templates">Templates</a>
+        <a href="safety.html" data-nav="safety">Safety</a>
+        <a href="downloads.html" data-nav="downloads">Downloads</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap page-body">
+    <section class="page-intro panel">
+      <p class="eyebrow">Launch path</p>
+      <h1>What to build first, in the right order.</h1>
+      <p class="lede">
+        Start with the workflows that move the most records and need the least ambiguity. Keep the first release narrow, reviewable, and operator-controlled.
+      </p>
+    </section>
+
+    <section class="section split-section">
+      <article class="panel panel-strong">
+        <div class="section-heading compact">
+          <p class="eyebrow">Recommended build order</p>
+          <h2>Build sequence</h2>
+        </div>
+        <ol class="ordered-list">
+          <li>New lead speed-to-contact</li>
+          <li>Missing document follow-up</li>
+          <li>Stalled deal revival</li>
+          <li>Funded client renewal reminders</li>
+          <li>Referral partner nurture</li>
+          <li>Dead lead reactivation</li>
+        </ol>
+      </article>
+      <article class="panel panel-strong">
+        <div class="section-heading compact">
+          <p class="eyebrow">Why this order</p>
+          <h2>Why the first steps come first</h2>
+        </div>
+        <ul class="bullet-list">
+          <li>New lead speed-to-contact creates the earliest operational win.</li>
+          <li>Missing document follow-up is easy to measure and easy to review.</li>
+          <li>Stalled deal revival adds a controlled next-step pattern.</li>
+          <li>Later steps can reuse the same review rules and messaging patterns.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section split-section">
+      <article class="panel">
+        <div class="section-heading compact">
+          <p class="eyebrow">Minimum viable setup</p>
+          <h2>Start with the smallest useful system</h2>
+        </div>
+        <ul class="check-list">
+          <li>One workflow per record type</li>
+          <li>One owner for next action</li>
+          <li>One review step before sensitive sends</li>
+          <li>One CRM stage or tag per state change</li>
+          <li>One draft-only output for each message type</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <div class="section-heading compact">
+          <p class="eyebrow">What to avoid</p>
+          <h2>Keep the first release narrow</h2>
+        </div>
+        <ul class="bullet-list">
+          <li>Do not auto-send sensitive funding-related messages.</li>
+          <li>Do not add approval, qualification, eligibility, rate, term, or guarantee language.</li>
+          <li>Do not mix every workflow into one sequence.</li>
+          <li>Do not skip human review on lender-specific or decline-related copy.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Safety review points</p>
+        <h2>Where the operator should stop and verify</h2>
+      </div>
+      <div class="panel">
+        <ul class="check-list">
+          <li>Human review required before borrower-facing claims</li>
+          <li>Human review required before lender-specific statements</li>
+          <li>Human review required before underwriting-related notes</li>
+          <li>Human review required before decline messages or sensitive documents</li>
+          <li>Operator-controlled send for anything that leaves the system</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section split-section">
+      <article class="panel panel-strong">
+        <div class="section-heading compact">
+          <p class="eyebrow">Next action checklist</p>
+          <h2>What to do after the roadmap is reviewed</h2>
+        </div>
+        <ul class="bullet-list">
+          <li>Draft the new lead sequence first.</li>
+          <li>Define the missing document tag and stage flow.</li>
+          <li>Write the human review notes for stalled deals.</li>
+          <li>Capture the minimum CRM discipline required for launch.</li>
+        </ul>
+      </article>
+      <article class="panel panel-strong">
+        <div class="section-heading compact">
+          <p class="eyebrow">Implementation note</p>
+          <h2>Use the same structure across every future workflow</h2>
+        </div>
+        <p class="body-copy">
+          The roadmap works best when each workflow has a clear trigger, a draft-only message set, and a review step before any operator-controlled send.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-wrap footer-grid">
+      <div>
+        <strong>Broker Follow-Up Machine GPT</strong>
+        <p>Practical follow-up systems for broker teams and funding agency owners.</p>
+      </div>
+      <div>
+        <p>Human review before borrower-facing claims, lender-specific statements, declines, underwriting-related messages, and sensitive documents.</p>
+      </div>
+      <div class="footer-meta">
+        <span>Public docs</span>
+        <span data-year></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
