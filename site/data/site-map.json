@@ -96,5 +96,54 @@
     "title": "Referral Partners",
     "purpose": "Role page for referral partner managers and partner-channel operators.",
     "category": "secondary"
+  },
+  {
+    "file": "workflows/new-lead.html",
+    "path": "site/workflows/new-lead.html",
+    "title": "New Lead",
+    "purpose": "Workflow detail page for new lead speed-to-contact.",
+    "category": "workflow-detail"
+  },
+  {
+    "file": "workflows/missing-docs.html",
+    "path": "site/workflows/missing-docs.html",
+    "title": "Missing Docs",
+    "purpose": "Workflow detail page for missing document follow-up.",
+    "category": "workflow-detail"
+  },
+  {
+    "file": "workflows/stalled-deal.html",
+    "path": "site/workflows/stalled-deal.html",
+    "title": "Stalled Deal",
+    "purpose": "Workflow detail page for stalled deal revival.",
+    "category": "workflow-detail"
+  },
+  {
+    "file": "workflows/declined-reactivation.html",
+    "path": "site/workflows/declined-reactivation.html",
+    "title": "Declined Reactivation",
+    "purpose": "Workflow detail page for declined reactivation.",
+    "category": "workflow-detail"
+  },
+  {
+    "file": "workflows/funded-renewals.html",
+    "path": "site/workflows/funded-renewals.html",
+    "title": "Funded Renewals",
+    "purpose": "Workflow detail page for funded client renewal reminders.",
+    "category": "workflow-detail"
+  },
+  {
+    "file": "workflows/referral-nurture.html",
+    "path": "site/workflows/referral-nurture.html",
+    "title": "Referral Nurture",
+    "purpose": "Workflow detail page for referral partner nurture.",
+    "category": "workflow-detail"
+  },
+  {
+    "file": "workflows/dead-lead-revival.html",
+    "path": "site/workflows/dead-lead-revival.html",
+    "title": "Dead Lead Revival",
+    "purpose": "Workflow detail page for dead lead revival.",
+    "category": "workflow-detail"
   }
 ]
