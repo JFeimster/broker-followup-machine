@@ -1,57 +1,36 @@
-# Consolidated Action Idea Catalog
+# Actions Catalog
+
+This is the planning index for the Actions layer.
 
 ## Purpose
 
-This catalog summarizes recommended Action ideas for **Broker Follow-Up Machine GPT** and maps each idea to the suggested documentation file where it should live.
+Keep each integration path separated by auth type and by use case so the team can reason about implementation without mixing docs, prompts, and live code.
 
-Use this as the planning index before creating OpenAPI schemas, Action documentation, or no-auth/API-key/OAuth implementation specs.
+## When to use it
 
-## Action Ideas
+- You need to decide whether a workflow needs no-auth, API key, OAuth, or webhook support.
+- You want to map a GPT output into a future Action without building the integration yet.
+- You need a checklist for what to document before a live integration is approved.
 
-| Category | Action Idea | Suggested File | Best For |
-|---|---|---|---|
-| Lead intake | Submit Broker Consultation Request | `actions/none/lead-intake.md` | Capturing general broker requests |
-| Lead intake | Submit Workflow Audit Request | `actions/none/lead-intake.md` | Pipeline/follow-up audits |
-| Lead intake | Submit CRM Automation Request | `actions/none/lead-intake.md` | DFY automation inquiries |
-| Lead intake | Submit Follow-Up Sequence Request | `actions/none/lead-intake.md` | Sequence generation intake |
-| Lead intake | Submit Missing Document Workflow Request | `actions/none/lead-intake.md` | Missing-doc workflow intake |
-| Lead intake | Submit Referral Partner System Request | `actions/none/lead-intake.md` | Referral nurture system intake |
-| Public calculators | Calculate Days Since Last Contact | `actions/none/calculators.md` | Deal aging |
-| Public calculators | Score Pipeline Urgency | `actions/none/calculators.md` | Prioritization |
-| Public calculators | Estimate Follow-Up Cadence | `actions/none/calculators.md` | Timing recommendations |
-| Public calculators | Prioritize Stale Deals | `actions/none/calculators.md` | Pipeline cleanup |
-| Public calculators | Calculate SLA Breach Risk | `actions/none/calculators.md` | SLA monitoring |
-| Public calculators | Estimate Follow-Up Load | `actions/none/calculators.md` | Staffing/workload planning |
-| Template generators | Generate Email Sequence Pack | `actions/none/templates.md` | Email workflow assets |
-| Template generators | Generate SMS Sequence Pack | `actions/none/templates.md` | SMS workflow assets |
-| Template generators | Generate CRM Task Checklist | `actions/none/templates.md` | Task planning |
-| Template generators | Generate Referral Partner Nurture Plan | `actions/none/templates.md` | Partner nurture |
-| Template generators | Generate Missing Docs Checklist | `actions/none/templates.md` | Document collection |
-| Template generators | Generate Workflow SOP Document | `actions/none/templates.md` | SOP creation |
-| Public webhooks | Trigger Generic Workflow Request Webhook | `actions/none/webhooks.md` | General workflow request routing |
-| Public webhooks | Trigger Broker Audit Intake Webhook | `actions/none/webhooks.md` | Audit request routing |
-| Public webhooks | Trigger Template Delivery Webhook | `actions/none/webhooks.md` | Sending requested assets |
-| Public webhooks | Trigger Internal Notification Webhook | `actions/none/webhooks.md` | Team notifications |
-| Public webhooks | Trigger Downloadable Asset Creation | `actions/none/webhooks.md` | PDF/Markdown/CSV creation |
-| Public webhooks | Trigger Workflow Demo Submission | `actions/none/webhooks.md` | Testing Actions |
-| Validation helpers | Validate CRM Stage Naming | `actions/none/validation.md` | CRM cleanup |
-| Validation helpers | Validate Automation Map Structure | `actions/none/validation.md` | Automation design |
-| Validation helpers | Validate Required Workflow Fields | `actions/none/validation.md` | Workflow readiness |
-| Validation helpers | Validate Follow-Up Sequence Timing | `actions/none/validation.md` | Cadence quality |
-| Validation helpers | Validate Human Review Points | `actions/none/validation.md` | Safety routing |
-| Validation helpers | Validate Message Safety Language | `actions/none/validation.md` | Compliance-conscious copy review |
+## Inputs
 
-## Recommended First Build Order
+- Workflow name
+- Intended output
+- Auth model
+- Data sensitivity
+- Human review requirement
 
-1. `actions/none/lead-intake.md`
-2. `actions/none/templates.md`
-3. `actions/none/validation.md`
-4. `actions/none/calculators.md`
-5. `actions/none/webhooks.md`
+## Outputs
 
-## Notes
+- A categorized Action note
+- The narrowest integration path
+- Safety and review checkpoints
 
-- Start with no-auth Actions first because they are lower-friction and easier to document.
-- Keep borrower-sensitive workflows conservative.
-- Require human review when a workflow touches funding terms, offers, declines, eligibility language, approval language, lender-specific claims, or sensitive document interpretation.
-- Use the folder path as the namespace; avoid repeating `actions-none-auth` inside every file name.
+## Safety boundary
+
+- Human review required before lender-specific statements, underwriting-related messages, decline-related messages, sensitive document handling, or borrower-facing claims.
+- Do not include approval, qualification, eligibility, rate, term, or guarantee language except in restricted-language lists that clearly mark the terms to avoid.
+
+## Next implementation step
+
+Start with the `none/` catalog, then move to `api-key/`, `oauth/`, and `webhooks/` only when the use case is still worth building after review.

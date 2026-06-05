@@ -25,11 +25,22 @@ Broker follow-up workflows, GPT knowledge files, Actions specs, and CRM automati
 - Knowledge stack files
 - Workflow playbooks
 - Messaging libraries
-- Actions documentation
+- Actions documentation and planning layer
 - No-auth Action catalogs
 - API Key and OAuth planning files
 - OpenAPI schema drafts
 - Vercel documentation site
+
+## Actions planning
+
+The `actions/` folder is documentation-only planning for future GPT Actions.
+
+- `actions/README.md` explains the folder map and scope.
+- `actions/catalog.md` indexes the major Action paths.
+- `actions/safety.md` defines the review boundary.
+- `actions/none/`, `actions/api-key/`, `actions/oauth/`, `actions/webhooks/`, `actions/schemas/`, and `actions/review/` hold the detailed planning files.
+
+Do not add live integrations, secrets, or executable network code to the planning layer.
 
 ## Viewing the site locally
 
