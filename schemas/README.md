@@ -1,15 +1,25 @@
-# `schemas/`
+# Schemas
 
-This is where future technical files should live.
+This folder contains static JSON Schema drafts for the Broker Follow-Up Machine utility layer.
 
-Use this for:
+## Purpose
 
-- OpenAPI YAML files
-- JSON schemas
-- Example request payloads
-- Example responses
-- Validation schemas
+- Define the shape of example payloads and review objects
+- Keep the schema layer static and example-only
+- Support consistent GPT output without introducing live integration code
 
-When you start building actual GPT Actions, this folder becomes important.
+## Files
 
----
+- `lead-intake.schema.json`
+- `workflow-request.schema.json`
+- `template-request.schema.json`
+- `safety-review.schema.json`
+- `crm-stage-map.schema.json`
+- `webhook-event.schema.json`
+
+## Rules
+
+- Use JSON Schema draft 2020-12
+- Keep borrower data placeholder-only
+- Include human review fields where relevant
+- Include safety flags where relevant

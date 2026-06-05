@@ -1,0 +1,26 @@
+{
+  "record_type": "workflow-request",
+  "workflow_id": "funded-renewals",
+  "business_name": "Example Business LLC",
+  "audience": "Funded client success",
+  "channel": "email",
+  "goal": "Prepare a renewal reminder draft that stays operator-controlled.",
+  "stage": "post-funding",
+  "desired_outputs": [
+    "email",
+    "sms",
+    "crm-task"
+  ],
+  "inputs": {
+    "contact_name": "Example Business Owner",
+    "renewal_context": "May be worth reviewing the account for a future conversation."
+  },
+  "human_review_required": true,
+  "safety_flags": {
+    "lender_specific_statement": false,
+    "underwriting_related_message": false,
+    "decline_related_message": false,
+    "sensitive_document_handling": false,
+    "borrower_facing_claim": false
+  }
+}

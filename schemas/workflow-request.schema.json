@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://broker-followup-machine.local/schemas/workflow-request.schema.json",
+  "title": "Workflow Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "request_id",
+    "workflow_id",
+    "business_name",
+    "audience",
+    "channel",
+    "goal",
+    "human_review_required",
+    "safety_flags"
+  ],
+  "properties": {
+    "request_id": {
+      "type": "string"
+    },
+    "workflow_id": {
+      "type": "string",
+      "enum": [
+        "new-lead",
+        "missing-docs",
+        "stalled-deal",
+        "declined-reactivation",
+        "funded-renewals",
+        "referral-nurture",
+        "dead-lead-revival"
+      ]
+    },
+    "business_name": {
+      "type": "string"
+    },
+    "audience": {
+      "type": "string"
+    },
+    "channel": {
+      "type": "string",
+      "enum": [
+        "email",
+        "sms",
+        "call",
+        "voicemail"
+      ]
+    },
+    "goal": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "desired_outputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "inputs": {
+      "type": "object"
+    },
+    "human_review_required": {
+      "type": "boolean"
+    },
+    "safety_flags": {
+      "$ref": "#/$defs/safetyFlags"
+    }
+  },
+  "$defs": {
+    "safetyFlags": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lender_specific_statement": {
+          "type": "boolean"
+        },
+        "underwriting_related_message": {
+          "type": "boolean"
+        },
+        "decline_related_message": {
+          "type": "boolean"
+        },
+        "sensitive_document_handling": {
+          "type": "boolean"
+        },
+        "borrower_facing_claim": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

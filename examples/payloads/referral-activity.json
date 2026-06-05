@@ -1,0 +1,26 @@
+{
+  "record_type": "workflow-request",
+  "workflow_id": "referral-nurture",
+  "business_name": "Example Business LLC",
+  "audience": "Referral partner managers",
+  "channel": "email",
+  "goal": "Draft a simple partner check-in sequence with safe language.",
+  "stage": "partner-nurture",
+  "desired_outputs": [
+    "email",
+    "sms",
+    "crm-task"
+  ],
+  "inputs": {
+    "partner_name": "Example Referral Partner",
+    "partner_company": "Example Partner Co."
+  },
+  "human_review_required": true,
+  "safety_flags": {
+    "lender_specific_statement": false,
+    "underwriting_related_message": false,
+    "decline_related_message": false,
+    "sensitive_document_handling": false,
+    "borrower_facing_claim": false
+  }
+}

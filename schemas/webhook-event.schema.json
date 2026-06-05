@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://broker-followup-machine.local/schemas/webhook-event.schema.json",
+  "title": "Webhook Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "event_type",
+    "workflow_id",
+    "source_system",
+    "received_at",
+    "human_review_required",
+    "safety_flags",
+    "payload"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "lead-intake",
+        "missing-doc-status",
+        "stalled-deal-status",
+        "renewal-reminder",
+        "referral-activity"
+      ]
+    },
+    "workflow_id": {
+      "type": "string",
+      "enum": [
+        "new-lead",
+        "missing-docs",
+        "stalled-deal",
+        "declined-reactivation",
+        "funded-renewals",
+        "referral-nurture",
+        "dead-lead-revival"
+      ]
+    },
+    "source_system": {
+      "type": "string"
+    },
+    "received_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "business_name": {
+      "type": "string"
+    },
+    "contact_name": {
+      "type": "string"
+    },
+    "contact_role": {
+      "type": "string"
+    },
+    "human_review_required": {
+      "type": "boolean"
+    },
+    "safety_flags": {
+      "$ref": "#/$defs/safetyFlags"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "example_only": {
+      "type": "boolean",
+      "const": true
+    }
+  },
+  "$defs": {
+    "safetyFlags": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lender_specific_statement": {
+          "type": "boolean"
+        },
+        "underwriting_related_message": {
+          "type": "boolean"
+        },
+        "decline_related_message": {
+          "type": "boolean"
+        },
+        "sensitive_document_handling": {
+          "type": "boolean"
+        },
+        "borrower_facing_claim": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

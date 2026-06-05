@@ -1,0 +1,56 @@
+openapi: 3.1.0
+info:
+  title: Safety Review Draft API
+  version: 0.1.0
+  description: Static OpenAPI draft for safety review planning only.
+servers:
+  - url: https://example.com
+paths:
+  /safety-review:
+    post:
+      summary: Request a safety review draft
+      operationId: requestSafetyReview
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required:
+                - workflow_id
+                - review_scope
+                - risk_level
+              properties:
+                workflow_id:
+                  type: string
+                  enum:
+                    - new-lead
+                    - missing-docs
+                    - stalled-deal
+                    - declined-reactivation
+                    - funded-renewals
+                    - referral-nurture
+                    - dead-lead-revival
+                review_scope:
+                  type: string
+                  enum:
+                    - draft
+                    - send
+                    - underwriting-related
+                    - decline-related
+                    - document-handling
+                    - lender-specific
+                    - borrower-facing-claim
+                risk_level:
+                  type: string
+                  enum:
+                    - low
+                    - medium
+                    - high
+                human_review_required:
+                  type: boolean
+                  const: true
+      responses:
+        "200":
+          description: Draft accepted for review

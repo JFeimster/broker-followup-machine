@@ -1,0 +1,51 @@
+openapi: 3.1.0
+info:
+  title: Template Generator Draft API
+  version: 0.1.0
+  description: Static OpenAPI draft for template planning only.
+servers:
+  - url: https://example.com
+paths:
+  /template-generator:
+    post:
+      summary: Request a template draft
+      operationId: requestTemplateDraft
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required:
+                - workflow_id
+                - template_type
+                - audience
+              properties:
+                workflow_id:
+                  type: string
+                  enum:
+                    - new-lead
+                    - missing-docs
+                    - stalled-deal
+                    - declined-reactivation
+                    - funded-renewals
+                    - referral-nurture
+                    - dead-lead-revival
+                template_type:
+                  type: string
+                  enum:
+                    - email
+                    - sms
+                    - call
+                    - voicemail
+                    - crm-task
+                    - objection
+                    - follow-up-calendar
+                audience:
+                  type: string
+                human_review_required:
+                  type: boolean
+      responses:
+        "200":
+          description: Draft accepted for review

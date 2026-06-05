@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://broker-followup-machine.local/schemas/crm-stage-map.schema.json",
+  "title": "CRM Stage Map",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "crm_name",
+    "version",
+    "workflow_mappings"
+  ],
+  "properties": {
+    "crm_name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "workflow_mappings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "workflow_id",
+          "stage_key",
+          "stage_label",
+          "tag",
+          "human_review_required"
+        ],
+        "properties": {
+          "workflow_id": {
+            "type": "string",
+            "enum": [
+              "new-lead",
+              "missing-docs",
+              "stalled-deal",
+              "declined-reactivation",
+              "funded-renewals",
+              "referral-nurture",
+              "dead-lead-revival"
+            ]
+          },
+          "stage_key": {
+            "type": "string"
+          },
+          "stage_label": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "human_review_required": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

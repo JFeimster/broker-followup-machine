@@ -1,0 +1,23 @@
+{
+  "event_id": "evt_example_stalled_deal_001",
+  "event_type": "stalled-deal-status",
+  "workflow_id": "stalled-deal",
+  "source_system": "crm-webhook",
+  "received_at": "2026-06-05T12:10:00Z",
+  "business_name": "Example Business LLC",
+  "contact_name": "Example Broker",
+  "contact_role": "Loan Broker",
+  "human_review_required": true,
+  "safety_flags": {
+    "lender_specific_statement": false,
+    "underwriting_related_message": true,
+    "decline_related_message": false,
+    "sensitive_document_handling": false,
+    "borrower_facing_claim": false
+  },
+  "payload": {
+    "stage": "stalled",
+    "next_step": "confirm file status"
+  },
+  "example_only": true
+}

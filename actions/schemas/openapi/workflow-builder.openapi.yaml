@@ -1,0 +1,48 @@
+openapi: 3.1.0
+info:
+  title: Workflow Builder Draft API
+  version: 0.1.0
+  description: Static OpenAPI draft for workflow planning only.
+servers:
+  - url: https://example.com
+paths:
+  /workflow-builder:
+    post:
+      summary: Request a workflow build draft
+      operationId: requestWorkflowBuild
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required:
+                - workflow_id
+                - audience
+                - channel
+              properties:
+                workflow_id:
+                  type: string
+                  enum:
+                    - new-lead
+                    - missing-docs
+                    - stalled-deal
+                    - declined-reactivation
+                    - funded-renewals
+                    - referral-nurture
+                    - dead-lead-revival
+                audience:
+                  type: string
+                channel:
+                  type: string
+                  enum:
+                    - email
+                    - sms
+                    - call
+                    - voicemail
+                human_review_required:
+                  type: boolean
+      responses:
+        "200":
+          description: Draft accepted for review

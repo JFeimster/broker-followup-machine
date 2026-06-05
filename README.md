@@ -45,6 +45,21 @@ The `knowledge/` folder holds the upload-ready broker-specific knowledge stack f
 
 Keep these files concise, product-specific, and ready for GPT upload.
 
+## Schemas
+
+The `schemas/` folder holds static JSON Schema drafts and example payload shapes for the Broker Follow-Up Machine utility layer.
+
+- `schemas/*.json` define the expected payload shape for lead intake, workflow requests, template requests, safety review, CRM stage maps, and webhook events.
+- Keep these schemas example-only and aligned to the broker follow-up workflows.
+
+## Examples
+
+The `examples/` folder holds static payload examples, webhook examples, and sample GPT outputs.
+
+- `examples/payloads/` shows the minimal request shapes.
+- `examples/webhooks/` shows webhook event wrappers.
+- `examples/outputs/` shows the expected style of workflow output.
+
 ## Actions planning
 
 The `actions/` folder is documentation-only planning for future GPT Actions.
@@ -76,8 +91,8 @@ Then open:
 |---|---|
 | `/knowledge` | Upload-ready GPT knowledge files |
 | `/business` | Offer, funnel, pricing, and service packaging strategy |
+| `/schemas` | Static JSON Schema drafts and payload shapes |
+| `/examples` | Static payload, webhook, and output examples |
 | `/actions` | GPT Actions planning and auth documentation |
-| `/schemas` | OpenAPI and JSON schema files |
-| `/examples` | Sample outputs and test cases |
 | `/site` | Static Vercel documentation pages |
 | `/prompts` | Prompts used to generate docs and files |

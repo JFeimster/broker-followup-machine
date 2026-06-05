@@ -1,0 +1,20 @@
+{
+  "record_type": "lead-intake",
+  "workflow_id": "new-lead",
+  "business_name": "Example Business LLC",
+  "contact_name": "Example Broker",
+  "contact_role": "Loan Broker",
+  "contact_email": "example.broker@example.com",
+  "contact_phone": "+1-555-0100",
+  "source": "website-form",
+  "requested_follow_up_channel": "email",
+  "human_review_required": true,
+  "safety_flags": {
+    "lender_specific_statement": false,
+    "underwriting_related_message": false,
+    "decline_related_message": false,
+    "sensitive_document_handling": false,
+    "borrower_facing_claim": false
+  },
+  "notes": "Example lead intake for a broker follow-up sequence."
+}
