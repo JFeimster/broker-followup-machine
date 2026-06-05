@@ -56,6 +56,34 @@
     "category": "primary"
   },
   {
+    "file": "tools/index.html",
+    "path": "site/tools/index.html",
+    "title": "Tools",
+    "purpose": "Static utility viewer for repo schemas, examples, webhook examples, and OpenAPI drafts.",
+    "category": "tools"
+  },
+  {
+    "file": "tools/payload-viewer.html",
+    "path": "site/tools/payload-viewer.html",
+    "title": "Payload Viewer",
+    "purpose": "Static catalog of payload, webhook, and output examples.",
+    "category": "tools"
+  },
+  {
+    "file": "tools/schema-index.html",
+    "path": "site/tools/schema-index.html",
+    "title": "Schema Index",
+    "purpose": "Static index of JSON Schema drafts.",
+    "category": "tools"
+  },
+  {
+    "file": "tools/openapi-index.html",
+    "path": "site/tools/openapi-index.html",
+    "title": "OpenAPI Index",
+    "purpose": "Static index of OpenAPI draft placeholders.",
+    "category": "tools"
+  },
+  {
     "file": "assets.html",
     "path": "site/assets.html",
     "title": "Assets",

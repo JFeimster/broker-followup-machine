@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schema Index | Broker Follow-Up Machine GPT</title>
+  <meta name="description" content="Static index of JSON Schema drafts used by the utility layer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body data-page="tools">
+  <header class="site-header">
+    <div class="topbar">
+      <span>Public static docs</span>
+      <span>Broker Follow-Up Machine GPT</span>
+    </div>
+    <div class="header-inner page-wrap">
+      <a class="brand" href="../index.html" aria-label="Broker Follow-Up Machine GPT home">
+        <span class="brand-mark">BFM</span>
+        <span class="brand-copy">
+          <strong>Broker Follow-Up Machine GPT</strong>
+          <span>Documentation site</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html" data-nav="home">Home</a>
+        <a href="../agents.html" data-nav="agent">Agent</a>
+        <a href="../knowledge.html" data-nav="knowledge">Knowledge</a>
+        <a href="../actions.html" data-nav="actions">Actions</a>
+        <a href="../workflows.html" data-nav="workflows">Workflows</a>
+        <a href="../templates.html" data-nav="templates">Templates</a>
+        <a href="../safety.html" data-nav="safety">Safety</a>
+        <a href="../downloads.html" data-nav="downloads">Downloads</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap page-body">
+    <section class="page-intro panel">
+      <p class="eyebrow">Tools</p>
+      <h1>JSON Schema draft index.</h1>
+      <p class="lede">
+        The utility layer uses JSON Schema draft 2020-12. These schemas are static planning files and should be treated as example-only reference material.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="feature-grid">
+        <article class="panel feature">
+          <h3><a href="../../schemas/lead-intake.schema.json">lead-intake.schema.json</a></h3>
+          <p>Lead intake payload shape with business name, contact details, review flags, and safety flags.</p>
+        </article>
+        <article class="panel feature">
+          <h3><a href="../../schemas/workflow-request.schema.json">workflow-request.schema.json</a></h3>
+          <p>Workflow request shape for broker follow-up drafts and channel selection.</p>
+        </article>
+        <article class="panel feature">
+          <h3><a href="../../schemas/template-request.schema.json">template-request.schema.json</a></h3>
+          <p>Template request shape for email, SMS, call, voicemail, CRM task, objection, and cadence drafts.</p>
+        </article>
+        <article class="panel feature">
+          <h3><a href="../../schemas/safety-review.schema.json">safety-review.schema.json</a></h3>
+          <p>Safety review shape for risk level, scope, and required review state.</p>
+        </article>
+        <article class="panel feature">
+          <h3><a href="../../schemas/crm-stage-map.schema.json">crm-stage-map.schema.json</a></h3>
+          <p>CRM mapping shape for workflow stage and tag suggestions.</p>
+        </article>
+        <article class="panel feature">
+          <h3><a href="../../schemas/webhook-event.schema.json">webhook-event.schema.json</a></h3>
+          <p>Webhook event wrapper shape for static event examples.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section split-section">
+      <article class="panel panel-strong">
+        <div class="section-heading compact">
+          <p class="eyebrow">Standard</p>
+          <h2>Draft version</h2>
+        </div>
+        <ul class="bullet-list">
+          <li>All schema files use draft 2020-12</li>
+          <li>Example fields stay placeholder-only</li>
+          <li>Human review fields stay visible where relevant</li>
+        </ul>
+      </article>
+      <article class="panel panel-strong">
+        <div class="section-heading compact">
+          <p class="eyebrow">Safety note</p>
+          <h2>Review before use</h2>
+        </div>
+        <ul class="bullet-list">
+          <li>Check borrower-facing fields before copy-paste use</li>
+          <li>Check sensitive document references before sharing</li>
+          <li>Check lender-specific fields before any outward use</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-wrap footer-grid">
+      <div>
+        <strong>Broker Follow-Up Machine GPT</strong>
+        <p>Practical follow-up systems for broker teams and funding agency owners.</p>
+      </div>
+      <div>
+        <p>Human review before borrower-facing claims, lender-specific statements, declines, underwriting-related messages, and sensitive documents.</p>
+      </div>
+      <div class="footer-meta">
+        <span>Public docs</span>
+        <span data-year></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
