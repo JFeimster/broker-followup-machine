@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payload Builder | Broker Follow-Up Machine GPT</title>
+  <meta name="description" content="Static in-browser payload builder for Broker Follow-Up Machine GPT utility payloads.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .builder-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+      gap: 1.25rem;
+      align-items: start;
+    }
+    .builder-form {
+      display: grid;
+      gap: 1rem;
+    }
+    .builder-grid {
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .field {
+      display: grid;
+      gap: 0.4rem;
+    }
+    .field label,
+    .fieldset-title {
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(34, 46, 70, 0.14);
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--text);
+      padding: 0.8rem 0.9rem;
+      font: inherit;
+    }
+    .field textarea {
+      min-height: 108px;
+      resize: vertical;
+    }
+    .fieldset {
+      border: 1px solid rgba(34, 46, 70, 0.1);
+      border-radius: 18px;
+      padding: 1rem;
+      background: rgba(247, 247, 241, 0.72);
+      display: grid;
+      gap: 0.75rem;
+    }
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.6rem 1rem;
+    }
+    .check-item {
+      display: flex;
+      gap: 0.55rem;
+      align-items: flex-start;
+      font-size: 0.94rem;
+    }
+    .check-item input {
+      margin-top: 0.18rem;
+    }
+    .actions-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .preview-box {
+      border: 1px solid rgba(34, 46, 70, 0.12);
+      border-radius: 18px;
+      background: #0f1720;
+      color: #f2f4f8;
+      padding: 1rem;
+      overflow: auto;
+      min-height: 520px;
+      white-space: pre;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+    .preview-meta {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+    .notice {
+      border-left: 4px solid var(--accent);
+      background: rgba(229, 127, 62, 0.09);
+      padding: 0.9rem 1rem;
+      border-radius: 12px;
+    }
+    @media (max-width: 960px) {
+      .builder-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 720px) {
+      .builder-grid,
+      .check-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body data-page="tools">
+  <header class="site-header">
+    <div class="topbar">
+      <span>Public static docs</span>
+      <span>Broker Follow-Up Machine GPT</span>
+    </div>
+    <div class="header-inner page-wrap">
+      <a class="brand" href="../index.html" aria-label="Broker Follow-Up Machine GPT home">
+        <span class="brand-mark">BFM</span>
+        <span class="brand-copy">
+          <strong>Broker Follow-Up Machine GPT</strong>
+          <span>Documentation site</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html" data-nav="home">Home</a>
+        <a href="../agents.html" data-nav="agent">Agent</a>
+        <a href="../knowledge.html" data-nav="knowledge">Knowledge</a>
+        <a href="../actions.html" data-nav="actions">Actions</a>
+        <a href="../workflows.html" data-nav="workflows">Workflows</a>
+        <a href="../templates.html" data-nav="templates">Templates</a>
+        <a href="../safety.html" data-nav="safety">Safety</a>
+        <a href="../downloads.html" data-nav="downloads">Downloads</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap page-body">
+    <section class="page-intro panel">
+      <p class="eyebrow">Tools</p>
+      <h1>Local payload builder.</h1>
+      <p class="lede">
+        Build placeholder payloads in your browser, inspect the JSON preview, and copy it locally. Nothing is sent anywhere. Human review is still required before borrower-facing use.
+      </p>
+      <div class="notice">
+        Local only. This viewer does not store data, call any service, or create an integration.
+      </div>
+    </section>
+
+    <section class="section builder-layout">
+      <article class="panel">
+        <form id="builderForm" class="builder-form">
+          <div class="builder-grid">
+            <div class="field">
+              <label for="payload_type">Payload type</label>
+              <select id="payload_type" name="payload_type">
+                <option value="lead-intake">lead-intake</option>
+                <option value="workflow-request">workflow-request</option>
+                <option value="template-request">template-request</option>
+                <option value="safety-review">safety-review</option>
+                <option value="webhook-event">webhook-event</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="workflow_id">Workflow selector</label>
+              <select id="workflow_id" name="workflow_id">
+                <option value="new-lead">new-lead</option>
+                <option value="missing-docs">missing-docs</option>
+                <option value="stalled-deal">stalled-deal</option>
+                <option value="declined-reactivation">declined-reactivation</option>
+                <option value="funded-renewals">funded-renewals</option>
+                <option value="referral-nurture">referral-nurture</option>
+                <option value="dead-lead-revival">dead-lead-revival</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="business_name">Business name</label>
+              <input id="business_name" name="business_name" type="text" value="Example Business LLC">
+            </div>
+            <div class="field">
+              <label for="contact_name">Contact name</label>
+              <input id="contact_name" name="contact_name" type="text" value="Example Broker">
+            </div>
+            <div class="field">
+              <label for="source">Source</label>
+              <input id="source" name="source" type="text" value="website-form">
+            </div>
+            <div class="field">
+              <label for="audience">Audience</label>
+              <input id="audience" name="audience" type="text" value="Broker operations">
+            </div>
+            <div class="field">
+              <label for="goal">Goal</label>
+              <input id="goal" name="goal" type="text" value="Create a draft-only follow-up payload.">
+            </div>
+            <div class="field">
+              <label for="channel">Channel</label>
+              <select id="channel" name="channel">
+                <option value="email">email</option>
+                <option value="sms">sms</option>
+                <option value="call">call</option>
+                <option value="voicemail">voicemail</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes">Example-only payload builder. Human review required before borrower-facing use.</textarea>
+          </div>
+
+          <div class="fieldset">
+            <div class="fieldset-title">Human review</div>
+            <label class="check-item">
+              <input id="human_review_required" name="human_review_required" type="checkbox" checked>
+              <span>Human review required before use</span>
+            </label>
+          </div>
+
+          <div class="fieldset">
+            <div class="fieldset-title">Safety flags</div>
+            <div class="check-grid">
+              <label class="check-item"><input type="checkbox" id="lender_specific_statement"><span>lender_specific_statement</span></label>
+              <label class="check-item"><input type="checkbox" id="underwriting_related_message"><span>underwriting_related_message</span></label>
+              <label class="check-item"><input type="checkbox" id="decline_related_message"><span>decline_related_message</span></label>
+              <label class="check-item"><input type="checkbox" id="sensitive_document_reference"><span>sensitive_document_reference</span></label>
+              <label class="check-item"><input type="checkbox" id="borrower_facing_claim"><span>borrower_facing_claim</span></label>
+            </div>
+          </div>
+
+          <div class="actions-row">
+            <button class="button" type="button" id="copyJson">Copy JSON</button>
+            <button class="button button-secondary" type="button" id="resetForm">Reset</button>
+          </div>
+        </form>
+      </article>
+
+      <aside class="panel">
+        <div class="preview-meta">
+          <span class="pill">Local only</span>
+          <span class="pill">Example values</span>
+          <span class="pill">Human review required</span>
+        </div>
+        <div id="jsonPreview" class="preview-box" aria-live="polite"></div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-wrap footer-grid">
+      <div>
+        <strong>Broker Follow-Up Machine GPT</strong>
+        <p>Practical follow-up systems for broker teams and funding agency owners.</p>
+      </div>
+      <div>
+        <p>Human review before borrower-facing claims, lender-specific statements, declines, underwriting-related messages, and sensitive documents.</p>
+      </div>
+      <div class="footer-meta">
+        <span>Public docs</span>
+        <span data-year></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>
+    (function () {
+      const form = document.getElementById('builderForm');
+      const preview = document.getElementById('jsonPreview');
+      const copyButton = document.getElementById('copyJson');
+      const resetButton = document.getElementById('resetForm');
+
+      const fieldIds = [
+        'payload_type',
+        'workflow_id',
+        'business_name',
+        'contact_name',
+        'source',
+        'audience',
+        'goal',
+        'channel',
+        'notes',
+        'human_review_required',
+        'lender_specific_statement',
+        'underwriting_related_message',
+        'decline_related_message',
+        'sensitive_document_reference',
+        'borrower_facing_claim',
+      ];
+
+      const defaultValues = {
+        payload_type: 'lead-intake',
+        workflow_id: 'new-lead',
+        business_name: 'Example Business LLC',
+        contact_name: 'Example Broker',
+        source: 'website-form',
+        audience: 'Broker operations',
+        goal: 'Create a draft-only follow-up payload.',
+        channel: 'email',
+        notes: 'Example-only payload builder. Human review required before borrower-facing use.',
+        human_review_required: true,
+        lender_specific_statement: false,
+        underwriting_related_message: false,
+        decline_related_message: false,
+        sensitive_document_reference: false,
+        borrower_facing_claim: false,
+      };
+
+      const typeDefaults = {
+        'lead-intake': {
+          source: 'website-form',
+          audience: 'Broker intake team',
+          goal: 'Capture a new lead intake payload.',
+          channel: 'email',
+          notes: 'Lead intake placeholder for local review.',
+        },
+        'workflow-request': {
+          source: 'crm-entry',
+          audience: 'Broker operations',
+          goal: 'Prepare a workflow draft payload.',
+          channel: 'email',
+          notes: 'Workflow request placeholder for local review.',
+        },
+        'template-request': {
+          source: 'template-library',
+          audience: 'Broker operations',
+          goal: 'Prepare a template draft payload.',
+          channel: 'email',
+          notes: 'Template request placeholder for local review.',
+        },
+        'safety-review': {
+          source: 'review-queue',
+          audience: 'Safety review queue',
+          goal: 'Prepare a safety review payload.',
+          channel: 'email',
+          notes: 'Safety review placeholder for local review.',
+        },
+        'webhook-event': {
+          source: 'webhook-simulator',
+          audience: 'Operator preview',
+          goal: 'Prepare a webhook-style payload.',
+          channel: 'email',
+          notes: 'Webhook event placeholder for local review.',
+        },
+      };
+
+      function getValue(id) {
+        const el = document.getElementById(id);
+        if (!el) return '';
+        if (el.type === 'checkbox') return el.checked;
+        return el.value.trim();
+      }
+
+      function updateTypeDefaults() {
+        const payloadType = getValue('payload_type');
+        const defaults = typeDefaults[payloadType] || typeDefaults['lead-intake'];
+        ['source', 'audience', 'goal', 'channel', 'notes'].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el && (!el.value || el.dataset.autofilled !== 'false')) {
+            el.value = defaults[id];
+          }
+        });
+        document.getElementById('notes').value = defaults.notes;
+        document.getElementById('source').value = defaults.source;
+        document.getElementById('audience').value = defaults.audience;
+        document.getElementById('goal').value = defaults.goal;
+        document.getElementById('channel').value = defaults.channel;
+      }
+
+      function buildPayload() {
+        const payloadType = getValue('payload_type');
+        const workflowId = getValue('workflow_id');
+        const webhookEventTypeMap = {
+          'new-lead': 'lead-intake',
+          'missing-docs': 'missing-doc-status',
+          'stalled-deal': 'stalled-deal-status',
+          'declined-reactivation': 'lead-intake',
+          'funded-renewals': 'renewal-reminder',
+          'referral-nurture': 'referral-activity',
+          'dead-lead-revival': 'lead-intake',
+        };
+        const base = {
+          business_name: getValue('business_name') || defaultValues.business_name,
+          contact_name: getValue('contact_name') || defaultValues.contact_name,
+          source: getValue('source') || defaultValues.source,
+          audience: getValue('audience') || defaultValues.audience,
+          goal: getValue('goal') || defaultValues.goal,
+          channel: getValue('channel') || defaultValues.channel,
+          notes: getValue('notes') || defaultValues.notes,
+          human_review_required: getValue('human_review_required'),
+          safety_flags: {
+            lender_specific_statement: getValue('lender_specific_statement'),
+            underwriting_related_message: getValue('underwriting_related_message'),
+            decline_related_message: getValue('decline_related_message'),
+            sensitive_document_reference: getValue('sensitive_document_reference'),
+            borrower_facing_claim: getValue('borrower_facing_claim'),
+          },
+        };
+
+        switch (payloadType) {
+          case 'lead-intake':
+            return {
+              record_type: 'lead-intake',
+              workflow_id: workflowId,
+              ...base,
+              contact_role: 'Loan Broker',
+            };
+          case 'workflow-request':
+            return {
+              request_id: 'req_example_workflow_001',
+              workflow_id: workflowId,
+              ...base,
+            };
+          case 'template-request':
+            return {
+              request_id: 'req_example_template_001',
+              workflow_id: workflowId,
+              template_type: getValue('channel') || 'email',
+              ...base,
+            };
+          case 'safety-review':
+            return {
+              review_id: 'rev_example_001',
+              workflow_id: workflowId,
+              review_scope: getValue('borrower_facing_claim') ? 'borrower-facing-claim' : 'draft',
+              risk_level: getValue('borrower_facing_claim') || getValue('sensitive_document_reference') ? 'high' : 'medium',
+              human_review_required: true,
+              safety_flags: {
+                lender_specific_statement: getValue('lender_specific_statement'),
+                underwriting_related_message: getValue('underwriting_related_message'),
+                decline_related_message: getValue('decline_related_message'),
+                sensitive_document_handling: getValue('sensitive_document_reference'),
+                borrower_facing_claim: getValue('borrower_facing_claim'),
+              },
+              reviewer_notes: 'Review required before borrower-facing use.',
+              review_status: 'needs-review',
+            };
+          case 'webhook-event':
+            return {
+              event_id: 'evt_example_builder_001',
+              event_type: webhookEventTypeMap[workflowId] || 'lead-intake',
+              workflow_id: workflowId,
+              source_system: getValue('source') || 'webhook-simulator',
+              received_at: '2026-06-05T12:00:00Z',
+              business_name: base.business_name,
+              contact_name: base.contact_name,
+              contact_role: 'Loan Broker',
+              human_review_required: true,
+              safety_flags: {
+                lender_specific_statement: getValue('lender_specific_statement'),
+                underwriting_related_message: getValue('underwriting_related_message'),
+                decline_related_message: getValue('decline_related_message'),
+                sensitive_document_handling: getValue('sensitive_document_reference'),
+                borrower_facing_claim: getValue('borrower_facing_claim'),
+              },
+              payload: {
+                business_name: base.business_name,
+                contact_name: base.contact_name,
+                source: base.source,
+                audience: base.audience,
+                goal: base.goal,
+                channel: base.channel,
+                notes: base.notes,
+              },
+              example_only: true,
+            };
+          default:
+            return base;
+        }
+      }
+
+      function renderPreview() {
+        const payload = buildPayload();
+        preview.textContent = JSON.stringify(payload, null, 2);
+      }
+
+      function setDefaults() {
+        fieldIds.forEach((id) => {
+          const el = document.getElementById(id);
+          const value = defaultValues[id];
+          if (!el) return;
+          if (el.type === 'checkbox') {
+            el.checked = Boolean(value);
+          } else {
+            el.value = value;
+          }
+          el.dataset.autofilled = 'true';
+        });
+        updateTypeDefaults();
+        renderPreview();
+      }
+
+      form.addEventListener('input', (event) => {
+        const target = event.target;
+        if (target && ['source', 'audience', 'goal', 'channel', 'notes'].includes(target.id)) {
+          target.dataset.autofilled = 'false';
+        }
+        if (target && target.id === 'payload_type') {
+          updateTypeDefaults();
+        }
+        renderPreview();
+      });
+
+      copyButton.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(preview.textContent);
+          copyButton.textContent = 'Copied';
+          window.setTimeout(() => {
+            copyButton.textContent = 'Copy JSON';
+          }, 1200);
+        } catch (error) {
+          copyButton.textContent = 'Copy failed';
+          window.setTimeout(() => {
+            copyButton.textContent = 'Copy JSON';
+          }, 1200);
+        }
+      });
+
+      resetButton.addEventListener('click', () => {
+        setDefaults();
+      });
+
+      setDefaults();
+    }());
+  </script>
+</body>
+</html>
