@@ -33,6 +33,18 @@ Secondary pages:
 | `processors.html` | Role page for processors, VAs, and ops support. |
 | `referral-partners.html` | Role page for referral partner managers and partner-channel operators. |
 
+Workflow detail pages:
+
+| File | Purpose |
+| --- | --- |
+| `workflows/new-lead.html` | Detail page for new lead speed-to-contact. |
+| `workflows/missing-docs.html` | Detail page for missing document follow-up. |
+| `workflows/stalled-deal.html` | Detail page for stalled deal revival. |
+| `workflows/declined-reactivation.html` | Detail page for declined reactivation. |
+| `workflows/funded-renewals.html` | Detail page for funded client renewals. |
+| `workflows/referral-nurture.html` | Detail page for referral partner nurture. |
+| `workflows/dead-lead-revival.html` | Detail page for dead lead revival. |
+
 Notes:
 
 - Public site files live directly under `/site`.
