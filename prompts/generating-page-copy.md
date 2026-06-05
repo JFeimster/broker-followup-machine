@@ -1,4 +1,6 @@
-# Static Docs Site Page Copy Prompt
+# Generating page copy
+
+Best prompt for generating page copy first
 
 ## Purpose
 
