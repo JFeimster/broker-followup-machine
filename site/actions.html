@@ -1,55 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GPT Actions & Integrations | Broker Follow-Up Machine</title>
-    <meta name="description" content="Technical documentation on API connections, webhooks, and authentication for the Broker Follow-Up Machine.">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actions | Broker Follow-Up Machine GPT</title>
+  <meta name="description" content="Show Actions planning for None, API Key, OAuth, no-auth categories, API key categories, OAuth categories, and safety boundaries.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <nav class="sticky-nav">
-        <div class="logo"><span class="logo-accent">//</span> BROKER_OS_DOCS</div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="agents.html">Agent</a>
-            <a href="knowledge.html">Knowledge</a>
-            <a href="actions.html">Actions</a>
-            <a href="workflows.html">Workflows</a>
-            <a href="templates.html">Templates</a>
-            <a href="safety.html">Safety</a>
-            <a href="assets.html">Assets</a>
+<body data-page="actions">
+  <header class="site-header">
+    <div class="topbar">
+      <span>Public static docs</span>
+      <span>Broker Follow-Up Machine GPT</span>
+    </div>
+    <div class="header-inner page-wrap">
+      <a class="brand" href="index.html" aria-label="Broker Follow-Up Machine GPT home">
+        <span class="brand-mark">BFM</span>
+        <span class="brand-copy">
+          <strong>Broker Follow-Up Machine GPT</strong>
+          <span>Documentation site</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html" data-nav="home">Home</a>
+        <a href="agents.html" data-nav="agent">Agent</a>
+        <a href="knowledge.html" data-nav="knowledge">Knowledge</a>
+        <a href="actions.html" data-nav="actions">Actions</a>
+        <a href="workflows.html" data-nav="workflows">Workflows</a>
+        <a href="templates.html" data-nav="templates">Templates</a>
+        <a href="safety.html" data-nav="safety">Safety</a>
+        <a href="downloads.html" data-nav="downloads">Downloads</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap page-body">
+    <section class="page-intro panel">
+      <p class="eyebrow">Actions planning</p>
+      <h1>Keep integrations separated by auth type.</h1>
+      <p class="lede">
+        The Action plan should make it easy to see what can ship without auth, what needs an API key, and what belongs behind OAuth and explicit review.
+      </p>
+    </section>
+
+    <section class="section split-section">
+      <article class="panel">
+        <div class="section-heading compact">
+          <p class="eyebrow">None</p>
+          <h2>Start without an Action</h2>
         </div>
-    </nav>
-
-    <header class="hero">
-        <h1 class="hero-title">Connect Your<br><span class="highlight-cyan">Broker Stack.</span></h1>
-        <p class="hero-sub">Technical guides for wiring the GPT to your CRM via webhooks, APIs, and secure authentications.</p>
-    </header>
-
-    <main class="workflows">
-        <div class="grid-layout">
-            <section class="brutal-card card-dark">
-                <h3>Authentication Protocols</h3>
-                <p>Setting up secure OAuth and API keys to ensure your pipeline data is protected and correctly routed.</p>
-            </section>
-            <section class="brutal-card card-dark">
-                <h3>Supported CRM Webhooks</h3>
-                <p>Configuring endpoints for pulling real-time deal status updates and pushing drafted notes back to the borrower record.</p>
-            </section>
-            <section class="brutal-card card-dark">
-                <h3>Data Mapping & Payloads</h3>
-                <p>Aligning the GPT's JSON outputs to your standard CRM custom fields to avoid data fragmentation.</p>
-            </section>
-            <section class="brutal-card card-dark">
-                <h3>Testing & Fallbacks</h3>
-                <p>Troubleshooting connection timeouts, handling data validation errors, and setting up fallback alert notifications.</p>
-            </section>
+        <ul class="bullet-list">
+          <li>Pure documentation workflows</li>
+          <li>Template-only use cases</li>
+          <li>Static examples and uploadable files</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <div class="section-heading compact">
+          <p class="eyebrow">API Key</p>
+          <h2>Key-based categories</h2>
         </div>
-    </main>
+        <ul class="bullet-list">
+          <li>Simple read or write operations with a shared key</li>
+          <li>Low-complexity utility calls</li>
+          <li>Systems where the operator controls the key handling</li>
+        </ul>
+      </article>
+    </section>
 
-    <footer class="cta-section">
-        <a href="assets.html" class="btn btn-xl btn-cyan">VIEW API DOCS</a>
-    </footer>
+    <section class="section split-section">
+      <article class="panel">
+        <div class="section-heading compact">
+          <p class="eyebrow">OAuth</p>
+          <h2>Consent-based categories</h2>
+        </div>
+        <ul class="bullet-list">
+          <li>Connected CRM or workspace actions</li>
+          <li>User-specific access to files or records</li>
+          <li>Operations that should be tied to a signed-in user</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <div class="section-heading compact">
+          <p class="eyebrow">No-auth</p>
+          <h2>Public categories</h2>
+        </div>
+        <ul class="bullet-list">
+          <li>Static documentation retrieval</li>
+          <li>Public examples and templates</li>
+          <li>Safe browse-only content that does not expose private data</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Safety boundaries</p>
+        <h2>Where Action use should stop and review should start</h2>
+      </div>
+      <div class="panel">
+        <ul class="check-list">
+          <li>Require review before borrower-facing claims</li>
+          <li>Require review before lender-specific statements</li>
+          <li>Require review before decline messages or underwriting-related notes</li>
+          <li>Require review before handling sensitive documents or personal data</li>
+          <li>Keep auth separation clear so each action path is easy to audit</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-wrap footer-grid">
+      <div>
+        <strong>Broker Follow-Up Machine GPT</strong>
+        <p>Practical follow-up systems for broker teams and funding agency owners.</p>
+      </div>
+      <div>
+        <p>Human review before borrower-facing claims, lender-specific statements, declines, underwriting-related messages, and sensitive documents.</p>
+      </div>
+      <div class="footer-meta">
+        <span>Public docs</span>
+        <span data-year></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

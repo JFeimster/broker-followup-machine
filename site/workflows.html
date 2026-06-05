@@ -1,59 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automated Workflows | Broker Follow-Up Machine</title>
-    <meta name="description" content="Deploy standardized follow-up playbooks for missing documents, stalled deals, renewals, and referral partners.">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workflows | Broker Follow-Up Machine GPT</title>
+  <meta name="description" content="Show workflow playbooks for new lead, missing docs, stalled deal, declined reactivation, funded renewals, referral nurture, and dead lead revival.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <nav class="sticky-nav">
-        <div class="logo"><span class="logo-accent">//</span> BROKER_OS_DOCS</div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="agents.html">Agent</a>
-            <a href="knowledge.html">Knowledge</a>
-            <a href="actions.html">Actions</a>
-            <a href="workflows.html">Workflows</a>
-            <a href="templates.html">Templates</a>
-            <a href="safety.html">Safety</a>
-            <a href="assets.html">Assets</a>
+<body data-page="workflows">
+  <header class="site-header">
+    <div class="topbar">
+      <span>Public static docs</span>
+      <span>Broker Follow-Up Machine GPT</span>
+    </div>
+    <div class="header-inner page-wrap">
+      <a class="brand" href="index.html" aria-label="Broker Follow-Up Machine GPT home">
+        <span class="brand-mark">BFM</span>
+        <span class="brand-copy">
+          <strong>Broker Follow-Up Machine GPT</strong>
+          <span>Documentation site</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html" data-nav="home">Home</a>
+        <a href="agents.html" data-nav="agent">Agent</a>
+        <a href="knowledge.html" data-nav="knowledge">Knowledge</a>
+        <a href="actions.html" data-nav="actions">Actions</a>
+        <a href="workflows.html" data-nav="workflows">Workflows</a>
+        <a href="templates.html" data-nav="templates">Templates</a>
+        <a href="safety.html" data-nav="safety">Safety</a>
+        <a href="downloads.html" data-nav="downloads">Downloads</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap page-body">
+    <section class="page-intro panel">
+      <p class="eyebrow">Workflows</p>
+      <h1>Seven playbooks that cover the core follow-up motion.</h1>
+      <p class="lede">
+        Each workflow should map to a clear stage, a review point, and a practical next action so the operator never has to guess what happens next.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="feature-grid">
+        <article class="panel feature"><h3>New lead</h3><p>Set the first response path, capture context, and define the next touch.</p></article>
+        <article class="panel feature"><h3>Missing docs</h3><p>Keep the request sequence organized and easy to track.</p></article>
+        <article class="panel feature"><h3>Stalled deal</h3><p>Re-engage quiet records with a sequence that does not feel random.</p></article>
+        <article class="panel feature"><h3>Declined reactivation</h3><p>Use careful re-entry language and stop for review before any sensitive note goes out.</p></article>
+        <article class="panel feature"><h3>Funded renewals</h3><p>Plan the post-close touchpoints and maintain long-tail contact discipline.</p></article>
+        <article class="panel feature"><h3>Referral nurture</h3><p>Keep referral partners warm with steady, relevant follow-up.</p></article>
+        <article class="panel feature"><h3>Dead lead revival</h3><p>Resurface old records with a clean path back into the pipeline.</p></article>
+      </div>
+    </section>
+
+    <section class="section split-section">
+      <article class="panel panel-strong">
+        <div class="section-heading compact">
+          <p class="eyebrow">Workflow structure</p>
+          <h2>What each playbook should include</h2>
         </div>
-    </nav>
-
-    <header class="hero">
-        <h1 class="hero-title">Deploy Standardized<br><span class="highlight-cyan">Playbooks.</span></h1>
-        <p class="hero-sub">Stop improvising. Implement proven operational sequences for every bottleneck in your pipeline—from new leads to funded renewals.</p>
-    </header>
-
-    <main class="workflows">
-        <div class="grid-layout">
-            <section class="brutal-card card-dark">
-                <h3>The Missing Document Chase</h3>
-                <p>Persistent, professional prompts for pending stipulations that trigger automatically after 24, 48, and 72 hours.</p>
-            </section>
-            <section class="brutal-card card-dark">
-                <h3>Stalled Deal Reactivation</h3>
-                <p>Checking back in on ghosted deals without sounding desperate. Simple, operation-focused bumps.</p>
-            </section>
-            <section class="brutal-card card-dark">
-                <h3>Declined & Dead Lead Revival</h3>
-                <p>Routing old files back into active conversations based on 30, 60, and 90-day timeline triggers.</p>
-            </section>
-            <section class="brutal-card card-dark">
-                <h3>Funded Client Renewals</h3>
-                <p>90, 120, and 180-day automated touchpoints ensuring you capture the renewal before competitors do.</p>
-            </section>
-            <section class="brutal-card card-dark">
-                <h3>Referral Partner Nurture</h3>
-                <p>Keeping top-of-mind with your best lead sources through automated check-ins and pipeline updates.</p>
-            </section>
+        <ul class="check-list">
+          <li>Trigger condition</li>
+          <li>Message objective</li>
+          <li>Channel order</li>
+          <li>Review checkpoint</li>
+          <li>Next-step rule</li>
+        </ul>
+      </article>
+      <article class="panel panel-strong">
+        <div class="section-heading compact">
+          <p class="eyebrow">Operator view</p>
+          <h2>How to keep it manageable</h2>
         </div>
-    </main>
+        <ul class="bullet-list">
+          <li>One workflow, one outcome</li>
+          <li>One owner, one next action</li>
+          <li>One review point before sensitive sends</li>
+          <li>One clear history for the record</li>
+        </ul>
+      </article>
+    </section>
+  </main>
 
-    <footer class="cta-section">
-        <a href="templates.html" class="btn btn-xl btn-cyan">EXPLORE ALL PLAYBOOKS</a>
-    </footer>
+  <footer class="site-footer">
+    <div class="page-wrap footer-grid">
+      <div>
+        <strong>Broker Follow-Up Machine GPT</strong>
+        <p>Practical follow-up systems for broker teams and funding agency owners.</p>
+      </div>
+      <div>
+        <p>Human review before borrower-facing claims, lender-specific statements, declines, underwriting-related messages, and sensitive documents.</p>
+      </div>
+      <div class="footer-meta">
+        <span>Public docs</span>
+        <span data-year></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
