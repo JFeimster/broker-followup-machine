@@ -23,6 +23,16 @@ Page map:
 | `downloads.html` | Show downloadable asset categories and future file types. |
 | `assets.html` | Legacy compatibility page that points to `downloads.html`. |
 
+Secondary pages:
+
+| File | Purpose |
+| --- | --- |
+| `launch-path.html` | Implementation roadmap for what to build first. |
+| `brokers.html` | Role page for solo loan brokers and independent funding brokers. |
+| `agency-owners.html` | Role page for funding agency owners and broker team leaders. |
+| `processors.html` | Role page for processors, VAs, and ops support. |
+| `referral-partners.html` | Role page for referral partner managers and partner-channel operators. |
+
 Notes:
 
 - Public site files live directly under `/site`.

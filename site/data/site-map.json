@@ -1,37 +1,100 @@
 [
   {
+    "file": "index.html",
+    "path": "site/index.html",
+    "title": "Home",
+    "purpose": "Landing page with the public site overview, value proposition, and calls to action.",
+    "category": "primary"
+  },
+  {
     "file": "agents.html",
+    "path": "site/agents.html",
     "title": "Agent",
-    "description": "Public-facing explanation of Broker Follow-Up Machine GPT."
+    "purpose": "Public-facing explanation of Broker Follow-Up Machine GPT.",
+    "category": "primary"
   },
   {
     "file": "knowledge.html",
-    "title": "Knowledge Stack",
-    "description": "Browse the core GPT knowledge files and workflow playbooks."
+    "path": "site/knowledge.html",
+    "title": "Knowledge",
+    "purpose": "Browse the core GPT knowledge files and workflow playbooks.",
+    "category": "primary"
   },
   {
     "file": "actions.html",
+    "path": "site/actions.html",
     "title": "Actions",
-    "description": "Browse action categories, authentication types, and future integrations."
+    "purpose": "Browse action categories, authentication types, and future integrations.",
+    "category": "primary"
   },
   {
     "file": "workflows.html",
+    "path": "site/workflows.html",
     "title": "Workflows",
-    "description": "Explore borrower, referral partner, renewal, and dead-lead workflows."
+    "purpose": "Explore borrower, referral partner, renewal, and dead-lead workflows.",
+    "category": "primary"
   },
   {
     "file": "templates.html",
+    "path": "site/templates.html",
     "title": "Templates",
-    "description": "Browse email, SMS, call script, and CRM task templates."
+    "purpose": "Browse email, SMS, call script, and CRM task templates.",
+    "category": "primary"
   },
   {
     "file": "safety.html",
+    "path": "site/safety.html",
     "title": "Safety",
-    "description": "Human review rules and compliance-conscious broker language."
+    "purpose": "Human review rules and compliance-conscious broker language.",
+    "category": "primary"
   },
   {
     "file": "downloads.html",
+    "path": "site/downloads.html",
     "title": "Downloads",
-    "description": "Downloadable knowledge files, action files, examples, and future assets."
+    "purpose": "Downloadable knowledge files, action files, examples, and future assets.",
+    "category": "primary"
+  },
+  {
+    "file": "assets.html",
+    "path": "site/assets.html",
+    "title": "Assets",
+    "purpose": "Legacy compatibility page that redirects visitors to Downloads.",
+    "category": "legacy"
+  },
+  {
+    "file": "launch-path.html",
+    "path": "site/launch-path.html",
+    "title": "Launch Path",
+    "purpose": "Implementation roadmap for what to build first.",
+    "category": "secondary"
+  },
+  {
+    "file": "brokers.html",
+    "path": "site/brokers.html",
+    "title": "Brokers",
+    "purpose": "Role page for solo loan brokers and independent funding brokers.",
+    "category": "secondary"
+  },
+  {
+    "file": "agency-owners.html",
+    "path": "site/agency-owners.html",
+    "title": "Agency Owners",
+    "purpose": "Role page for funding agency owners and broker team leaders.",
+    "category": "secondary"
+  },
+  {
+    "file": "processors.html",
+    "path": "site/processors.html",
+    "title": "Processors",
+    "purpose": "Role page for processors, VAs, and ops support.",
+    "category": "secondary"
+  },
+  {
+    "file": "referral-partners.html",
+    "path": "site/referral-partners.html",
+    "title": "Referral Partners",
+    "purpose": "Role page for referral partner managers and partner-channel operators.",
+    "category": "secondary"
   }
 ]
