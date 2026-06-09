@@ -73,6 +73,8 @@ Do not add live integrations, secrets, or executable network code to the plannin
 
 ## Viewing the site locally
 
+`cd C:\repos\broker-followup-machine`
+
 No build step is required. From the repo root, run:
 
 ```bash
